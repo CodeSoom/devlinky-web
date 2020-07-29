@@ -7,5 +7,5 @@ import App from './App';
 test('<App />', () => {
   const { container } = render(<App />);
 
-  expect(container).toContain(/DevLink/i);
+  expect(container).toHaveTextContent(/DevLink/i);
 });
