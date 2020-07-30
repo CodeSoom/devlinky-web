@@ -1,0 +1,46 @@
+{
+  "devlinks": [
+    {
+      "id": 1,
+      "url": "http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html",
+      "writtenAt": "2020-01",
+      "objects": [
+        {
+          "id": 1,
+          "name": "React"
+        },
+        {
+          "id": 2,
+          "name": "TDD"
+        }
+      ],
+      "subjects": [
+        {
+          "id": 1,
+          "name": "장단점"
+        },
+        {
+          "id": 2,
+          "name": "역사"
+        },
+        {
+          "id": 3,
+          "name": "등장배경"
+        }
+      ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "컴팩트한 글"
+        },
+        {
+          "id": 2,
+          "name": "초보자도 쉽게 이해할 수 있는 글"
+        }
+      ],
+      "createdAt": "2020-02-01 14:10",
+      "updatedAt": null,
+      "deletedAt": null
+    }
+  ]
+}
