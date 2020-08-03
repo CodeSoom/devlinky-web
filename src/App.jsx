@@ -7,13 +7,13 @@ import { mainColor, whiteColor } from './styles/colors';
 import HomePage from './HomePage';
 
 const Headers = styled.header({
+  display: 'flex',
+  justifyContent: 'space-between',
   padding: '20px 50px',
   '& span': {
     textDecoration: 'underline',
     fontSize: '30px',
   },
-  display: 'flex',
-  justifyContent: 'space-between',
   '& button': {
     border: `1.5px solid ${mainColor}`,
     borderRadius: '7px',
