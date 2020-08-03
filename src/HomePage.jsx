@@ -4,11 +4,11 @@ import React from 'react';
 
 import { ReactTinyLink } from 'react-tiny-link';
 
-import {
-  mainColor, sub1Color, sub2Color, transparentColor, whiteColor,
-} from './styles/colors';
+import { colors, textStyles } from './styles/designSystem';
 
 import { devLinks } from '../fixture/data'; // TODO : 실제 DB에서 받아온 데이터로 변경할 예정
+
+const { object, subject, review } = textStyles.devLink;
 
 const HomePageContainer = styled.div({
   height: '100vh',
@@ -27,134 +27,145 @@ const DevLink = styled.div({
   margin: '10px',
   padding: '5px 8px',
   borderRadius: '5px',
-  backgroundColor: whiteColor,
+  backgroundColor: colors.white,
   textAlign: 'center',
-  boxShadow: '0px 4px 16px 0px #dcdcdc',
+  boxShadow: `0px 4px 16px 0px ${colors.shadow}`,
   ': hover': {
-    boxShadow: '0px 8px 32px 2px #dcdcdc',
+    boxShadow: `0px 8px 32px 2px ${colors.shadow}`,
     borderRadius: '4px',
     transition: 'box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s',
   },
 });
 
-const DevLinkHeader = styled.div(({ objectColor }) => ({
+const DevLinkHeader = styled.div({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
   padding: '0px 2px',
-  '& .objects': {
-    flex: '1.5',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    '& .object': {
-      color: objectColor,
-      fontWeight: 'bold',
-      alignItems: 'center',
-      backgroundColor: '#fff',
-      '& img': {
-        width: '15px',
-        marginRight: '1px',
-        display: 'inline-block',
-        verticalAlign: 'center',
-        backgroundColor: 'inherit',
-      },
-      '& span': {
-        letterSpacing: '1px',
-        color: objectColor,
-        fontSize: '20px',
-        fontWeight: 'bold',
-        fontFamily: 'Comfortaa',
-        backgroundColor: 'inherit',
-      },
-    },
+});
+
+const Objects = styled.div({
+  flex: '1.5',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+});
+
+const LinkObject = styled.div(({ objectColor }) => ({
+  color: objectColor,
+  alignItems: 'center',
+  backgroundColor: colors.white,
+  '& img': {
+    width: '15px',
+    marginRight: '1px',
+    display: 'inline-block',
+    verticalAlign: 'center',
+    backgroundColor: 'inherit',
   },
-  '& .writtenAt': {
-    flex: '0.5',
-    letterSpacing: '1px',
-    color: mainColor,
-    fontSize: '25px',
-    fontWeight: 'bolder',
+  '& span': {
+    color: objectColor,
+    fontFamily: object.fontFamily,
+    fontSize: object.fontSize,
+    fontWeight: object.fontWeight,
+    letterSpacing: object.letterSpacing,
+    backgroundColor: 'inherit',
   },
 }));
 
+const WrittenAt = styled.span({
+  flex: '0.5',
+  color: colors.blue.dark,
+  fontSize: '25px',
+  fontWeight: 'bolder',
+  letterSpacing: '1px',
+});
+
 const DevLinkBody = styled.div({
-  '& .subjects': {
-    display: 'flex',
-    flexDirection: 'row',
-    '& button': {
-      margin: '4px 2px',
-      padding: '2px 10px',
-      borderRadius: '5px',
-      border: `1px solid ${sub1Color}`,
-      color: sub1Color,
-      fontSize: '16px',
-      fontFamily: 'Nanum Pen Script, cursive',
-      letterSpacing: '2px',
-      backgroundColor: '#fff',
-      ': hover': {
-        backgroundColor: sub1Color,
-        color: '#fff',
-      },
-      ': focus': {
-        outlineStyle: 'none',
-        backgroundColor: sub1Color,
-        color: '#fff',
-      },
+  fontFamily: 'Nanum Pen Script, cursive',
+});
+
+const Subjects = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  '& button': {
+    margin: '4px 2px',
+    borderRadius: '5px',
+    border: `1px solid ${colors.orange}`,
+    padding: '2px 10px',
+    color: colors.orange,
+    fontFamily: subject.fontFamily,
+    fontSize: subject.fontSize,
+    letterSpacing: subject.letterSpacing,
+    backgroundColor: colors.white,
+    ': hover': {
+      backgroundColor: colors.orange,
+      color: colors.white,
+    },
+    ': focus': {
+      outlineStyle: 'none',
+      backgroundColor: colors.orange,
+      color: colors.white,
     },
   },
-  '& .linkContainer': {
-    backgroundColor: transparentColor,
-    '& a': { // Link 카드 전체
-      outlineStyle: 'none',
+});
+
+const LinkContainer = styled.div({
+  backgroundColor: colors.transparent,
+  '& a': {
+    // Link 카드 전체
+    outlineStyle: 'none',
+    height: '100px',
+    margin: '0',
+    padding: '0',
+    '& div': {
+      // Link 타이틀, URL, 도메인이름 등의 Container
+      margin: '2px',
+      padding: '0',
+    },
+    '& header': {
+      // Link 타이틀
       height: '100px',
       margin: '0',
       padding: '0',
-      '& div': { // Link 타이틀, URL, 도메인이름 등의 Container
-        margin: '2px',
-        padding: '0',
-      },
-      '& header': { // Link 타이틀
-        height: '100px',
-        margin: '0',
-        padding: '0',
-      },
-      '& div div': { // Link URL
-        height: '100px',
-        margin: '0',
-        padding: '0',
-      },
-      '& footer': { // URL 도메인이름
-        height: '100px',
-        margin: '0',
-        padding: '0',
-      },
+    },
+    '& div div': {
+      // Link URL
+      height: '100px',
+      margin: '0',
+      padding: '0',
+    },
+    '& footer': {
+      // URL 도메인이름
+      height: '100px',
+      margin: '0',
+      padding: '0',
     },
   },
-  '& .reviews': {
-    display: 'flex',
-    flexDirection: 'row',
-    '& button': {
-      margin: '2px',
-      height: '50px',
-      width: '50px',
+});
+
+const Reviews = styled.span({
+  display: 'flex',
+  flexDirection: 'row',
+  '& button': {
+    margin: '2px',
+    height: '50px',
+    width: '50px',
+    borderRadius: '50%',
+    border: `1.5px solid ${colors.blue.sky}`,
+    backgroundColor: colors.white,
+    color: colors.blue.sky,
+    fontFamily: review.fontFamily,
+    fontSize: review.fontSize,
+    letterSpacing: review.letterSpacing,
+    ': hover': {
+      backgroundColor: colors.blue.sky,
+      color: colors.white,
+    },
+    ': focus': {
+      outlineStyle: 'none',
       borderRadius: '50%',
-      border: `1.5px solid ${sub2Color}`,
-      color: sub2Color,
-      backgroundColor: '#FFF',
-      fontFamily: 'Nanum Pen Script, cursive',
-      fontSize: '14px',
-      letterSpacing: '3px',
-      ': hover': {
-        color: '#FFF',
-        backgroundColor: sub2Color,
-      },
-      ': focus': {
-        outlineStyle: 'none',
-        backgroundColor: sub2Color,
-        borderRadius: '50%',
-        color: '#fff',
-      },
+      backgroundColor: colors.blue.sky,
+      color: colors.white,
     },
   },
 });
@@ -165,17 +176,17 @@ export default function HomePage() {
       <DevLinks>
         {devLinks.map((devLink) => (
           <DevLink key={devLink.id}>
-            <DevLinkHeader objectColor={devLink.object.color}>
-              <div className="objects">
-                <div className="object">
+            <DevLinkHeader>
+              <Objects>
+                <LinkObject objectColor={devLink.object.color}>
                   <img src={devLink.object.img} alt="" />
                   <span>{devLink.object.name}</span>
-                </div>
-              </div>
-              <span className="writtenAt">{devLink.writtenAt}</span>
+                </LinkObject>
+              </Objects>
+              <WrittenAt>{devLink.writtenAt}</WrittenAt>
             </DevLinkHeader>
             <DevLinkBody>
-              <div className="linkContainer">
+              <LinkContainer>
                 <ReactTinyLink
                   cardSize="medium"
                   showGraphic
@@ -184,20 +195,22 @@ export default function HomePage() {
                   minLine={1}
                   url={devLink.url}
                 />
-              </div>
-              <div className="subjects">
-                {devLink.subjects.map((subject) => (
-                  <button type="button" key={subject.id}>
+              </LinkContainer>
+              <Subjects>
+                {devLink.subjects.map((subjectItem) => (
+                  <button type="button" key={subjectItem.id}>
                     #
-                    {subject.name}
+                    {subjectItem.name}
                   </button>
                 ))}
-              </div>
-              <div className="reviews">
-                {devLink.reviews.map((review) => (
-                  <button type="button" key={review.id}>{review.name}</button>
+              </Subjects>
+              <Reviews>
+                {devLink.reviews.map((reviewItem) => (
+                  <button type="button" key={reviewItem.id}>
+                    {reviewItem.name}
+                  </button>
                 ))}
-              </div>
+              </Reviews>
             </DevLinkBody>
           </DevLink>
         ))}

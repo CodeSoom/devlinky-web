@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import React from 'react';
 
-import { mainColor, whiteColor } from './styles/colors';
+import { colors } from './styles/designSystem';
 
 import HomePage from './HomePage';
 
@@ -15,14 +15,14 @@ const Headers = styled.header({
     fontSize: '30px',
   },
   '& button': {
-    border: `1.5px solid ${mainColor}`,
+    border: `1.5px solid ${colors.blue.dark}`,
     borderRadius: '7px',
     padding: '5px 20px',
-    backgroundColor: mainColor,
-    color: whiteColor,
+    backgroundColor: colors.blue.dark,
+    color: colors.white,
     ':hover': {
-      backgroundColor: whiteColor,
-      color: mainColor,
+      backgroundColor: colors.white,
+      color: colors.blue.dark,
     },
   },
 });
