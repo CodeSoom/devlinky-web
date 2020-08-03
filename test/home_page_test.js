@@ -22,6 +22,18 @@ const devLink = {
       id: 3,
       name: '등장배경',
     },
+    {
+      id: 4,
+      name: '장단점',
+    },
+    {
+      id: 5,
+      name: '역사',
+    },
+    {
+      id: 6,
+      name: '등장배경',
+    },
   ],
   reviews: [
     {
@@ -54,6 +66,8 @@ Scenario('Link 아이템이 보인다.', (I) => {
   devLink.subjects.forEach(({ name }) => {
     I.see(name);
   });
+
+  I.see('...');
 
   devLink.reviews.forEach(({ name }) => {
     I.see(name);
