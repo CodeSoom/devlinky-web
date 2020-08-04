@@ -9,7 +9,7 @@ import { devLinks } from '../fixture/data';
 test('<HomePage />', () => {
   const { container } = render(<HomePage />);
 
-  expect(container).toHaveTextContent(devLinks[0].object.name);
+  expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
   devLinks[0].subjects.forEach(({ name }, index) => {
     if (index < 3) {
