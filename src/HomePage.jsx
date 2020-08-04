@@ -1,12 +1,16 @@
 import styled from '@emotion/styled';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ReactTinyLink } from 'react-tiny-link';
 
 import { colors, textStyles } from './styles/designSystem';
 
-import { devLinks } from '../fixture/data'; // TODO : 실제 DB에서 받아온 데이터로 변경할 예정
+import { loadInitialData } from './common/slice';
+
+import { get } from './common/utils';
 
 const { title, subTitle, note } = textStyles;
 
@@ -172,6 +176,23 @@ const Reviews = styled.span({
 });
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+
+  const devLinks = useSelector(get('devlinks'));
+
+  useEffect(() => {
+    dispatch(loadInitialData());
+  }, []);
+
+  if (!devLinks) {
+    return (
+      <HomePageContainer>
+        <DevLinks />
+        <p>로딩중....</p>
+      </HomePageContainer>
+    );
+  }
+
   return (
     <HomePageContainer>
       <DevLinks>
