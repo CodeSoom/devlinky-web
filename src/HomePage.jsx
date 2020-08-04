@@ -8,7 +8,7 @@ import { colors, textStyles } from './styles/designSystem';
 
 import { devLinks } from '../fixture/data'; // TODO : 실제 DB에서 받아온 데이터로 변경할 예정
 
-const { object, subject, review } = textStyles.devLink;
+const { title, subTitle, note } = textStyles;
 
 const HomePageContainer = styled.div({
   height: '100vh',
@@ -65,10 +65,10 @@ const Keyword = styled.div(({ objectColor }) => ({
   },
   '& span': {
     color: objectColor,
-    fontFamily: object.fontFamily,
-    fontSize: object.fontSize,
-    fontWeight: object.fontWeight,
-    letterSpacing: object.letterSpacing,
+    fontFamily: title.fontFamily,
+    fontSize: title.fontSize,
+    fontWeight: title.fontWeight,
+    letterSpacing: title.letterSpacing,
     backgroundColor: 'inherit',
   },
 }));
@@ -85,7 +85,7 @@ const DevLinkBody = styled.div({
   fontFamily: 'Nanum Pen Script, cursive',
 });
 
-const Subjects = styled.div({
+const Tags = styled.div({
   display: 'flex',
   flexDirection: 'row',
   '& button': {
@@ -93,10 +93,10 @@ const Subjects = styled.div({
     borderRadius: '5px',
     border: `1px solid ${colors.orange}`,
     padding: '2px 10px',
-    color: colors.orange,
-    fontFamily: subject.fontFamily,
-    fontSize: subject.fontSize,
-    letterSpacing: subject.letterSpacing,
+    color: subTitle.color,
+    fontFamily: subTitle.fontFamily,
+    fontSize: subTitle.fontSize,
+    letterSpacing: subTitle.letterSpacing,
     backgroundColor: colors.white,
     ': hover': {
       backgroundColor: colors.orange,
@@ -154,10 +154,10 @@ const Reviews = styled.span({
     borderRadius: '50%',
     border: `1.5px solid ${colors.blue.sky}`,
     backgroundColor: colors.white,
-    color: colors.blue.sky,
-    fontFamily: review.fontFamily,
-    fontSize: review.fontSize,
-    letterSpacing: review.letterSpacing,
+    color: note.color,
+    fontFamily: note.fontFamily,
+    fontSize: note.fontSize,
+    letterSpacing: note.letterSpacing,
     ': hover': {
       backgroundColor: colors.blue.sky,
       color: colors.white,
@@ -179,9 +179,9 @@ export default function HomePage() {
           <DevLink key={devLink.id}>
             <DevLinkHeader>
               <Keywords>
-                <Keyword objectColor={devLink.object.color}>
-                  <img src={devLink.object.img} alt="" />
-                  <span>{devLink.object.name}</span>
+                <Keyword objectColor={devLink.keyword.color}>
+                  <img src={devLink.keyword.img} alt="" />
+                  <span>{devLink.keyword.name}</span>
                 </Keyword>
               </Keywords>
               <WrittenAt>{devLink.writtenAt}</WrittenAt>
@@ -197,7 +197,7 @@ export default function HomePage() {
                   url={devLink.url}
                 />
               </LinkContainer>
-              <Subjects>
+              <Tags>
                 {devLink.subjects.map((subjectItem, index) => {
                   if (index < 3) {
                     return (
@@ -207,7 +207,6 @@ export default function HomePage() {
                       </button>
                     );
                   }
-
                   if (index === 4) {
                     return (
                       <button type="button" key={subjectItem.id}>
@@ -215,10 +214,9 @@ export default function HomePage() {
                       </button>
                     );
                   }
-
                   return null;
                 })}
-              </Subjects>
+              </Tags>
               <Reviews>
                 {devLink.reviews.map((reviewItem, index) => {
                   if (index < 4) {
@@ -229,7 +227,6 @@ export default function HomePage() {
                       </button>
                     );
                   }
-
                   if (index === 5) {
                     return (
                       <button type="button" key={reviewItem.id}>
@@ -237,7 +234,6 @@ export default function HomePage() {
                       </button>
                     );
                   }
-
                   return null;
                 })}
               </Reviews>

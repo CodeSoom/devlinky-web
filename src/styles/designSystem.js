@@ -11,22 +11,22 @@ export const colors = {
 };
 
 export const textStyles = {
-  devLink: {
-    object: {
-      fontFamily: 'Comfortaa',
-      fontSize: '20px',
-      fontWeight: 'bold',
-      letterSpacing: '1px',
-    },
-    subject: {
-      fontFamily: 'inherit',
-      fontSize: '16px',
-      letterSpacing: '2px',
-    },
-    review: {
-      fontFamily: 'inherit',
-      fontSize: '14px',
-      letterSpacing: '3px',
-    },
+  title: {
+    fontFamily: 'Comfortaa',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    letterSpacing: '1px',
+  },
+  subTitle: {
+    fontFamily: 'Nanum Pen Script, cursive',
+    fontSize: '16px',
+    letterSpacing: '2px',
+    color: colors.orange,
+  },
+  note: {
+    fontFamily: 'Nanum Pen Script, cursive',
+    fontSize: '14px',
+    letterSpacing: '3px',
+    color: colors.blue.sky,
   },
 };
