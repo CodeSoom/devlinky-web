@@ -8,76 +8,23 @@ import HomePage from './HomePage';
 
 import { devLinks } from '../fixture/data';
 
-jest.mock('react-redux');
+import { loadInitialData } from './common/slice';
 
-describe('<HomePage />', () => {
+jest.mock('react-redux');
+jest.mock('./common/slice.js');
+
+test('HomePage ', () => {
   const dispatch = jest.fn();
 
-  beforeEach(() => {
-    dispatch.mockClear();
+  useDispatch.mockImplementation(() => dispatch);
 
-    useDispatch.mockImplementation(() => dispatch);
-  });
+  useSelector.mockImplementation((selector) => selector({
+    devlinks: devLinks,
+  }));
 
-  context('with devlinks', () => {
-    beforeEach(() => {
-      useSelector.mockImplementation((selector) => selector({
-        devlinks: devLinks,
-      }));
-    });
+  render(
+    <HomePage />,
+  );
 
-    it('renders without crash', () => {
-      const { container } = render(
-        <HomePage />,
-      );
-
-      expect(dispatch).toBeCalled();
-
-      expect(container).toHaveTextContent(devLinks[0].keyword.name);
-
-      devLinks[0].subjects.forEach(({ name }, index) => {
-        if (index < 3) {
-          expect(container).toHaveTextContent(name);
-        }
-
-        if (index === 4) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
-
-      devLinks[0].reviews.forEach(({ name }, index) => {
-        expect(container).toHaveTextContent(name);
-
-        if (index < 4) {
-          expect(container).toHaveTextContent(name);
-        }
-
-        if (index === 5) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
-    });
-  });
-
-  context('without devlinks', () => {
-    beforeEach(() => {
-      useSelector.mockImplementation((selector) => selector({
-        devlinks: null,
-      }));
-    });
-
-    it('show loading..', () => {
-      const { container } = render(
-        <HomePage />,
-      );
-
-      expect(dispatch).toBeCalled();
-
-      expect(container).toHaveTextContent('로딩중....');
-    });
-  });
+  expect(dispatch).toBeCalledWith(loadInitialData());
 });

@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  fetchDevLinks,
-} from '../../services/api';
+import fetchDevLinks from '../../services/api';
 
 const { actions, reducer } = createSlice({
   name: 'devlink#',

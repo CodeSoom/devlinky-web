@@ -1,4 +1,4 @@
-import { fetchDevLinks } from './api';
+import fetchDevLinks from './api';
 
 import { devLinks } from '../fixture/data';
 

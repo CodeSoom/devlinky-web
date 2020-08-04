@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import React from 'react';
 
-import { colors } from './styles/designSystem';
+import { colors } from './styles/common/designSystem';
 
 import HomePage from './HomePage';
 
