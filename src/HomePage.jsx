@@ -45,14 +45,14 @@ const DevLinkHeader = styled.div({
   padding: '0px 2px',
 });
 
-const Objects = styled.div({
+const Keywords = styled.div({
   flex: '1.5',
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
 
-const LinkObject = styled.div(({ objectColor }) => ({
+const Keyword = styled.div(({ objectColor }) => ({
   color: objectColor,
   alignItems: 'center',
   backgroundColor: colors.white,
@@ -178,12 +178,12 @@ export default function HomePage() {
         {devLinks.map((devLink) => (
           <DevLink key={devLink.id}>
             <DevLinkHeader>
-              <Objects>
-                <LinkObject objectColor={devLink.object.color}>
+              <Keywords>
+                <Keyword objectColor={devLink.object.color}>
                   <img src={devLink.object.img} alt="" />
                   <span>{devLink.object.name}</span>
-                </LinkObject>
-              </Objects>
+                </Keyword>
+              </Keywords>
               <WrittenAt>{devLink.writtenAt}</WrittenAt>
             </DevLinkHeader>
             <DevLinkBody>

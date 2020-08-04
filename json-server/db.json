@@ -4,7 +4,7 @@
       "id": 1,
       "url": "https://www.prisma.io/",
       "writtenAt": "2020/01",
-      "object": {
+      "keyword": {
         "id": 1,
         "name": "Prisma",
         "color": "#0C344B",
@@ -82,7 +82,7 @@
       "id": 2,
       "url": "http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html",
       "writtenAt": "2020/01",
-      "object": {
+      "keyword": {
         "id": 1,
         "name": "React",
         "color": "#61dafb",
@@ -121,7 +121,7 @@
       "id": 3,
       "url": "https://graphql.org/",
       "writtenAt": "2020/01",
-      "object": {
+      "keyword": {
         "id": 1,
         "name": "GraphQL",
         "color": "#D64292",

@@ -2,7 +2,7 @@ export const devLink = {
   id: 1,
   url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
   writtenAt: '2020/01',
-  object: {
+  keyword: {
     id: 1,
     name: 'Prisma',
     color: '#0C344B',
@@ -42,7 +42,7 @@ export const devLinks = [
     id: 1,
     url: 'https://www.prisma.io/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'Prisma',
       color: '#0C344B',
@@ -120,7 +120,7 @@ export const devLinks = [
     id: 2,
     url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'React',
       color: '#61dafb',
@@ -159,7 +159,7 @@ export const devLinks = [
     id: 3,
     url: 'https://graphql.org/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'GraphQL',
       color: '#D64292',
@@ -190,7 +190,7 @@ export const devLinks = [
     id: 4,
     url: 'https://www.prisma.io/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'Prisma',
       color: '#0C344B',
@@ -268,7 +268,7 @@ export const devLinks = [
     id: 5,
     url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'React',
       color: '#61dafb',
@@ -307,7 +307,7 @@ export const devLinks = [
     id: 6,
     url: 'https://graphql.org/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'GraphQL',
       color: '#D64292',
@@ -338,7 +338,7 @@ export const devLinks = [
     id: 7,
     url: 'https://www.prisma.io/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'Prisma',
       color: '#0C344B',
@@ -416,7 +416,7 @@ export const devLinks = [
     id: 8,
     url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'React',
       color: '#61dafb',
@@ -455,7 +455,7 @@ export const devLinks = [
     id: 9,
     url: 'https://graphql.org/',
     writtenAt: '2020/01',
-    object: {
+    keyword: {
       id: 1,
       name: 'GraphQL',
       color: '#D64292',
