@@ -5,10 +5,6 @@ import {
 } from './styles/DevLinks';
 
 export default function Tags({ subjects }) {
-  // if (!subjects) {
-  //   return <p>로딩중....</p>;
-  // }
-
   return (
     <TagsContainer>
       {subjects.map((subjectItem, index) => {
