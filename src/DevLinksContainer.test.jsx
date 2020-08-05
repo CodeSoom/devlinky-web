@@ -2,23 +2,15 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import App from './App';
+import DevLinksContainer from './DevLinksContainer';
 
 import { devLinks } from '../fixture/data';
 
 jest.mock('react-redux');
 
-describe('<App />', () => {
-  const dispatch = jest.fn();
-
-  beforeEach(() => {
-    dispatch.mockClear();
-
-    useDispatch.mockImplementation(() => dispatch);
-  });
-
+describe('<DevLinksContainer />', () => {
   context('with devlinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
@@ -26,15 +18,10 @@ describe('<App />', () => {
       }));
     });
 
-    it('renders devlinks', () => {
+    it('renders without crash', () => {
       const { container } = render(
-        <App />,
+        <DevLinksContainer />,
       );
-
-      expect(container).toHaveTextContent(/#Dev/i);
-      expect(container).toHaveTextContent(/로 그 인/i);
-
-      expect(dispatch).toBeCalled();
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
@@ -73,12 +60,10 @@ describe('<App />', () => {
       }));
     });
 
-    it('renders devlinks loading..', () => {
+    it('show loading..', () => {
       const { container } = render(
-        <App />,
+        <DevLinksContainer />,
       );
-
-      expect(dispatch).toBeCalled();
 
       expect(container).toHaveTextContent('로딩중....');
     });
