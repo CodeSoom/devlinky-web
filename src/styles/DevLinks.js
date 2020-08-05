@@ -131,7 +131,7 @@ export const LinkContainer = styled.div({
   },
 });
 
-export const Reviews = styled.span({
+export const ReviewsContainer = styled.span({
   display: 'flex',
   flexDirection: 'row',
   '& button': {

@@ -8,10 +8,10 @@ import {
   DevLinkBody,
   Tags,
   LinkContainer,
-  Reviews,
 } from './styles/DevLinks';
 
 import DevLinkHeader from './DevLinkHeader';
+import Reviews from './Reviews';
 
 export default function DevLinks({ devLinks }) {
   if (!devLinks) {
@@ -56,26 +56,9 @@ export default function DevLinks({ devLinks }) {
                 return null;
               })}
             </Tags>
-            <Reviews>
-              {devLink.reviews.map((reviewItem, index) => {
-                if (index < 4) {
-                  return (
-                    <button type="button" key={reviewItem.id}>
-                      #
-                      {reviewItem.name}
-                    </button>
-                  );
-                }
-                if (index === 5) {
-                  return (
-                    <button type="button" key={reviewItem.id}>
-                      ...
-                    </button>
-                  );
-                }
-                return null;
-              })}
-            </Reviews>
+            <Reviews
+              reviews={devLink.reviews}
+            />
           </DevLinkBody>
         </DevLink>
       ))}
