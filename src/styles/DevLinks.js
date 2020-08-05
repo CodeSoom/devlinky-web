@@ -103,6 +103,7 @@ export const LinkContainer = styled.div({
     // Link 카드 전체
     outlineStyle: 'none',
     height: '100px',
+    width: '28em',
     margin: '0',
     padding: '0',
     '& div': {
@@ -112,19 +113,16 @@ export const LinkContainer = styled.div({
     },
     '& header': {
       // Link 타이틀
-      height: '100px',
       margin: '0',
       padding: '0',
     },
     '& div div': {
       // Link URL
-      height: '100px',
       margin: '0',
       padding: '0',
     },
     '& footer': {
       // URL 도메인이름
-      height: '100px',
       margin: '0',
       padding: '0',
     },
