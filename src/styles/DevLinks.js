@@ -72,7 +72,7 @@ export const DevLinkBody = styled.div({
   fontFamily: 'Nanum Pen Script, cursive',
 });
 
-export const Tags = styled.div({
+export const TagsContainer = styled.div({
   display: 'flex',
   flexDirection: 'row',
   '& button': {

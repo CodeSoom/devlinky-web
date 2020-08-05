@@ -6,12 +6,12 @@ import {
   Container,
   DevLink,
   DevLinkBody,
-  Tags,
   LinkContainer,
 } from './styles/DevLinks';
 
 import DevLinkHeader from './DevLinkHeader';
 import Reviews from './Reviews';
+import Tags from './Tags';
 
 export default function DevLinks({ devLinks }) {
   if (!devLinks) {
@@ -36,26 +36,9 @@ export default function DevLinks({ devLinks }) {
                 url={devLink.url}
               />
             </LinkContainer>
-            <Tags>
-              {devLink.subjects.map((subjectItem, index) => {
-                if (index < 3) {
-                  return (
-                    <button type="button" key={subjectItem.id}>
-                      #
-                      {subjectItem.name}
-                    </button>
-                  );
-                }
-                if (index === 4) {
-                  return (
-                    <button type="button" key={subjectItem.id}>
-                      ...
-                    </button>
-                  );
-                }
-                return null;
-              })}
-            </Tags>
+            <Tags
+              subjects={devLink.subjects}
+            />
             <Reviews
               reviews={devLink.reviews}
             />
