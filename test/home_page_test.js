@@ -67,8 +67,6 @@ Scenario('Link 아이템이 보인다.', (I) => {
     I.see(name);
   });
 
-  I.see('...');
-
   devLink.reviews.forEach(({ name }) => {
     I.see(name);
   });
