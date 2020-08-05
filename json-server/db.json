@@ -2,7 +2,7 @@
   "devlinks": [
     {
       "id": 1,
-      "url": "https://www.prisma.io/",
+      "url": "https://medium.com/labelstore/prisma%EB%A1%9C-graphql%EC%9D%84-%EC%89%BD%EA%B2%8C-%EB%8F%84%EC%9E%85%ED%95%98%EA%B8%B0-fa64dcf63382",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -17,23 +17,11 @@
         },
         {
           "id": 2,
-          "name": "역사"
+          "name": "동작원리"
         },
         {
           "id": 3,
-          "name": "등장배경"
-        },
-        {
-          "id": 4,
-          "name": "장단점2"
-        },
-        {
-          "id": 5,
-          "name": "역사2"
-        },
-        {
-          "id": 6,
-          "name": "등장배경2"
+          "name": "사용법"
         }
       ],
       "reviews": [
@@ -44,34 +32,6 @@
         {
           "id": 2,
           "name": "정보성"
-        },
-        {
-          "id": 3,
-          "name": "통찰력"
-        },
-        {
-          "id": 4,
-          "name": "가독성"
-        },
-        {
-          "id": 5,
-          "name": "정보성"
-        },
-        {
-          "id": 6,
-          "name": "통찰력"
-        },
-        {
-          "id": 7,
-          "name": "가독성"
-        },
-        {
-          "id": 8,
-          "name": "정보성"
-        },
-        {
-          "id": 9,
-          "name": "통찰력"
         }
       ],
       "createdAt": "2020-02-01 14:10",
@@ -119,7 +79,7 @@
     },
     {
       "id": 3,
-      "url": "https://graphql.org/",
+      "url": "https://medium.com/@FourwingsY/graphql%EC%9D%84-%EC%98%A4%ED%95%B4%ED%95%98%EB%8B%A4-3216f404134",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -137,11 +97,11 @@
       "reviews": [
         {
           "id": 1,
-          "name": "스윽"
+          "name": "통찰력"
         },
         {
           "id": 2,
-          "name": "꾹"
+          "name": "특징"
         }
       ],
       "createdAt": "2020-02-01 14:14",
@@ -150,7 +110,7 @@
     },
     {
       "id": 4,
-      "url": "https://www.prisma.io/",
+      "url": "https://gmyankee.tistory.com/264",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -165,61 +125,13 @@
         },
         {
           "id": 2,
-          "name": "역사"
-        },
-        {
-          "id": 3,
-          "name": "등장배경"
-        },
-        {
-          "id": 4,
-          "name": "장단점2"
-        },
-        {
-          "id": 5,
-          "name": "역사2"
-        },
-        {
-          "id": 6,
-          "name": "등장배경2"
+          "name": "사용후기"
         }
       ],
       "reviews": [
         {
           "id": 1,
-          "name": "가독성"
-        },
-        {
-          "id": 2,
-          "name": "정보성"
-        },
-        {
-          "id": 3,
-          "name": "통찰력"
-        },
-        {
-          "id": 4,
-          "name": "가독성"
-        },
-        {
-          "id": 5,
-          "name": "정보성"
-        },
-        {
-          "id": 6,
-          "name": "통찰력"
-        },
-        {
-          "id": 7,
-          "name": "가독성"
-        },
-        {
-          "id": 8,
-          "name": "정보성"
-        },
-        {
-          "id": 9,
-          "name": "통찰력"
+          "name": "유쾌함"
         }
       ],
       "createdAt": "2020-02-01 14:10",
@@ -228,7 +140,7 @@
     },
     {
       "id": 5,
-      "url": "http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html",
+      "url": "https://medium.com/wasd/%EA%B8%B0%EC%B4%88%EB%B6%80%ED%84%B0-%EB%B0%B0%EC%9A%B0%EB%8A%94-react-js-1531b18f7bb2",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -240,21 +152,17 @@
       "subjects": [
         {
           "id": 1,
-          "name": "장단점"
+          "name": "특징"
         },
         {
           "id": 2,
-          "name": "역사"
-        },
-        {
-          "id": 3,
-          "name": "등장배경"
+          "name": "아키텍처"
         }
       ],
       "reviews": [
         {
           "id": 1,
-          "name": "덕후"
+          "name": "슥슥"
         },
         {
           "id": 2,
@@ -267,7 +175,7 @@
     },
     {
       "id": 6,
-      "url": "https://graphql.org/",
+      "url": "https://www.youtube.com/watch?v=EkWI6Ru8lFQ",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -285,11 +193,7 @@
       "reviews": [
         {
           "id": 1,
-          "name": "스윽"
-        },
-        {
-          "id": 2,
-          "name": "꾹"
+          "name": "가볍게"
         }
       ],
       "createdAt": "2020-02-01 14:14",
@@ -298,7 +202,7 @@
     },
     {
       "id": 7,
-      "url": "https://www.prisma.io/",
+      "url": "https://velog.io/@gtah2yk/Prisma-%EA%B4%80%EB%A0%A8-%EC%A0%95%EB%B3%B4%EC%A0%95%EB%A6%AC-hlk50xk8h8",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -309,65 +213,17 @@
       "subjects": [
         {
           "id": 1,
-          "name": "장단점"
+          "name": "특징"
         },
         {
           "id": 2,
-          "name": "역사"
-        },
-        {
-          "id": 3,
-          "name": "등장배경"
-        },
-        {
-          "id": 4,
-          "name": "장단점2"
-        },
-        {
-          "id": 5,
-          "name": "역사2"
-        },
-        {
-          "id": 6,
-          "name": "등장배경2"
+          "name": "동작원리"
         }
       ],
       "reviews": [
         {
           "id": 1,
-          "name": "가독성"
-        },
-        {
-          "id": 2,
-          "name": "정보성"
-        },
-        {
-          "id": 3,
-          "name": "통찰력"
-        },
-        {
-          "id": 4,
-          "name": "가독성"
-        },
-        {
-          "id": 5,
-          "name": "정보성"
-        },
-        {
-          "id": 6,
-          "name": "통찰력"
-        },
-        {
-          "id": 7,
-          "name": "가독성"
-        },
-        {
-          "id": 8,
-          "name": "정보성"
-        },
-        {
-          "id": 9,
-          "name": "통찰력"
+          "name": "컴팩트"
         }
       ],
       "createdAt": "2020-02-01 14:10",
@@ -376,7 +232,7 @@
     },
     {
       "id": 8,
-      "url": "http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html",
+      "url": "https://www.youtube.com/watch?v=DLX62G4lc44",
       "writtenAt": "2020/01",
       "keyword": {
         "id": 1,
@@ -388,25 +244,13 @@
       "subjects": [
         {
           "id": 1,
-          "name": "장단점"
-        },
-        {
-          "id": 2,
-          "name": "역사"
-        },
-        {
-          "id": 3,
-          "name": "등장배경"
+          "name": "예제"
         }
       ],
       "reviews": [
         {
           "id": 1,
-          "name": "덕후"
-        },
-        {
-          "id": 2,
-          "name": "쏙쏙"
+          "name": "초보"
         }
       ],
       "createdAt": "2020-02-01 14:12",
