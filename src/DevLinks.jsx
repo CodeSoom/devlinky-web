@@ -5,15 +5,13 @@ import { ReactTinyLink } from 'react-tiny-link';
 import {
   Container,
   DevLink,
-  DevLinkHeader,
-  Keywords,
-  Keyword,
-  WrittenAt,
   DevLinkBody,
   Tags,
   LinkContainer,
   Reviews,
 } from './styles/DevLinks';
+
+import DevLinkHeader from './DevLinkHeader';
 
 export default function DevLinks({ devLinks }) {
   if (!devLinks) {
@@ -24,15 +22,9 @@ export default function DevLinks({ devLinks }) {
     <Container>
       {devLinks.map((devLink) => (
         <DevLink key={devLink.id}>
-          <DevLinkHeader>
-            <Keywords>
-              <Keyword objectColor={devLink.keyword.color}>
-                <img src={devLink.keyword.img} alt="" />
-                <span>{devLink.keyword.name}</span>
-              </Keyword>
-            </Keywords>
-            <WrittenAt>{devLink.writtenAt}</WrittenAt>
-          </DevLinkHeader>
+          <DevLinkHeader
+            devLink={devLink}
+          />
           <DevLinkBody>
             <LinkContainer>
               <ReactTinyLink

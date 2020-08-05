@@ -25,7 +25,7 @@ export const DevLink = styled.div({
   },
 });
 
-export const DevLinkHeader = styled.div({
+export const DevLinkHeaderContainer = styled.div({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
