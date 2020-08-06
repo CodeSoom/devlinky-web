@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage":"https://CodeSoom.github.io/project-react-1-daadaadaah",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "npm run coverage && start-server-and-test start http://localhost:8080 test:e2e",
