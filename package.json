@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.prod.config.js",
+    "build:clean": "rm -rf dist",
     "test": "npm run coverage && start-server-and-test start http://localhost:8080 test:e2e",
     "coverage": "npm run test:unit -- --coverage",
     "test:unit": "jest",
