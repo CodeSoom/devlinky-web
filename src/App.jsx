@@ -32,9 +32,6 @@ export default function App() {
     <>
       <Headers>
         <span>#Dev</span>
-        <button type="button">
-          로 그 인
-        </button>
       </Headers>
       <div>
         <HomePage />

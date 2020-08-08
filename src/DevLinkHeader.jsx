@@ -12,7 +12,6 @@ export default function DevLinkHeader({ devLink }) {
     <DevLinkHeaderContainer>
       <Keywords>
         <Keyword objectColor={devLink.keyword.color}>
-          <img src={devLink.keyword.img} alt="" />
           <span>{devLink.keyword.name}</span>
         </Keyword>
       </Keywords>
