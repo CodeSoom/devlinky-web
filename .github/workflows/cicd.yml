@@ -23,7 +23,7 @@ jobs:
       - name: Start Server
         run: npm run start:json-server  
       - name: Test
-        run: npm start:server & npm test
+        run: npm run start:server & npm test
         env:
           HEADLESS: true
       - name: Build

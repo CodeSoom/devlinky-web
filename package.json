@@ -7,11 +7,10 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "start:server": "json-server --watch ./json-server/db.json",
-    "start-server": "npm start",
     "build": "webpack --config webpack.prod.config.js",
     "build:clean": "rm -rf dist",
     "deploy": "gh-pages -d dist",
-    "test": "npm run coverage && npm run start:server & start-server-and-test start http://localhost:8080 test:e2e",
+    "test": "npm run coverage && start-server-and-test start http://localhost:8080 test:e2e",
     "coverage": "npm run test:unit -- --coverage",
     "test:unit": "jest",
     "test:watch": "npm run test:unit -- --watchAll --coverage --verbose",
