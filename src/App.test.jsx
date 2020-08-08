@@ -32,7 +32,6 @@ describe('<App />', () => {
       );
 
       expect(container).toHaveTextContent(/#Dev/i);
-      expect(container).toHaveTextContent(/로 그 인/i);
 
       expect(dispatch).toBeCalled();
 
