@@ -20,8 +20,6 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
-      - name: Start Server
-        run: npm run start:json-server  
       - name: Test
         run: npm run start:server & npm test
         env:
