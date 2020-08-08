@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://daadaadaah.github.io/project-react-1-daadaadaah/",
+  "homepage": "https://CodeSoom.github.io/project-react-1-daadaadaah/",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
     "start:server": "json-server --watch ./json-server/db.json",
