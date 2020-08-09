@@ -33,9 +33,7 @@ export default function App() {
       <Headers>
         <span>#Dev</span>
       </Headers>
-      <div>
-        <HomePage />
-      </div>
+      <HomePage />
     </>
   );
 }
