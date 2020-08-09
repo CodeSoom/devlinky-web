@@ -1,5 +1,5 @@
 export default async function fetchDevLinks() {
-  const url = 'http://localhost:3000/devlinks';
+  const url = 'https://us-central1-devlinktag.cloudfunctions.net/app/api/devlinks';
   const response = await fetch(url);
   const data = await response.json();
   return data;
