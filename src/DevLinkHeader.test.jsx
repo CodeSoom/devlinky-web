@@ -7,10 +7,12 @@ import DevLinkHeader from './DevLinkHeader';
 import { devLink } from '../fixture/data';
 
 describe('<DevLinkHeader />', () => {
-  it('renders without crash', () => {
+  it('show DevLinkHeader', () => {
+    const { keyword, writtenAt } = devLink;
+
     const { container } = render(<DevLinkHeader devLink={devLink} />);
 
-    expect(container).toHaveTextContent(devLink.keyword.name);
-    expect(container).toHaveTextContent(devLink.writtenAt);
+    expect(container).toHaveTextContent(keyword.name);
+    expect(container).toHaveTextContent(writtenAt);
   });
 });

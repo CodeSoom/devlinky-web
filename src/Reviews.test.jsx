@@ -7,10 +7,12 @@ import Reviews from './Reviews';
 import { devLink } from '../fixture/data';
 
 describe('<Reviews />', () => {
-  it('renders without crash', () => {
-    const { container } = render(<Reviews reviews={devLink.reviews} />);
+  it('show Reviews', () => {
+    const { reviews } = devLink;
 
-    devLink.reviews.forEach((review) => {
+    const { container } = render(<Reviews reviews={reviews} />);
+
+    reviews.forEach((review) => {
       expect(container).toHaveTextContent(review.name);
     });
   });

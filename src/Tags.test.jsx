@@ -7,9 +7,11 @@ import Tags from './Tags';
 import { devLink } from '../fixture/data';
 
 describe('<Tags />', () => {
-  it('renders without crash', () => {
-    const { container } = render(<Tags tags={devLink.tags} />);
+  it('show Tags', () => {
+    const { tags } = devLink;
 
-    devLink.tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
+    const { container } = render(<Tags tags={tags} />);
+
+    tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
   });
 });
