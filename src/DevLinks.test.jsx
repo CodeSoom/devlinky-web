@@ -7,41 +7,19 @@ import DevLinks from './DevLinks';
 import { devLinks } from '../fixture/data';
 
 describe('<DevLinks />', () => {
-  context('with devlinks', () => {
+  context('with devLinks', () => {
     it('renders without crash', () => {
       const { container } = render(<DevLinks devLinks={devLinks} />);
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
-      devLinks[0].subjects.forEach(({ name }, index) => {
-        if (index < 3) {
-          expect(container).toHaveTextContent(name);
-        }
+      devLinks[0].tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
 
-        if (index === 4) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
-
-      devLinks[0].reviews.forEach(({ name }, index) => {
-        expect(container).toHaveTextContent(name);
-
-        if (index < 4) {
-          expect(container).toHaveTextContent(name);
-        }
-
-        if (index === 5) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
+      devLinks[0].reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
     });
   });
 
-  context('without devlinks', () => {
+  context('without devLinks', () => {
     it('show loading..', () => {
       const { container } = render(<DevLinks devLinks={null} />);
 

@@ -1,30 +1,16 @@
 import React from 'react';
 
-import {
-  TagsContainer,
-} from './styles/DevLinks';
+import { TagsContainer } from './styles/DevLinks';
 
-export default function Tags({ subjects }) {
+export default function Tags({ tags }) {
   return (
     <TagsContainer>
-      {subjects.map((subjectItem, index) => {
-        if (index < 3) {
-          return (
-            <button type="button" key={subjectItem.id}>
-              #
-              {subjectItem.name}
-            </button>
-          );
-        }
-        if (index === 4) {
-          return (
-            <button type="button" key={subjectItem.id}>
-              ...
-            </button>
-          );
-        }
-        return null;
-      })}
+      {tags.map((tag) => (
+        <button type="button" key={tag.id}>
+          #
+          {tag.name}
+        </button>
+      ))}
     </TagsContainer>
   );
 }

@@ -1,5 +1,5 @@
 {
-  "devlinks": [
+  "devLinks": [
     {
       "id": 1,
       "url": "https://medium.com/labelstore/prisma%EB%A1%9C-graphql%EC%9D%84-%EC%89%BD%EA%B2%8C-%EB%8F%84%EC%9E%85%ED%95%98%EA%B8%B0-fa64dcf63382",
@@ -10,7 +10,7 @@
         "color": "#0C344B",
         "img": "../assets/images/keyword/prisma.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "장단점"
@@ -49,7 +49,7 @@
         "img":
         "../assets/images/keyword/react.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "장단점"
@@ -88,7 +88,7 @@
         "img": "../assets/images/keyword/graghql.png"
       },
   
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "개념"
@@ -118,7 +118,7 @@
         "color": "#0C344B",
         "img": "../assets/images/keyword/prisma.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "장단점"
@@ -149,7 +149,7 @@
         "img":
         "../assets/images/keyword/react.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "특징"
@@ -184,7 +184,7 @@
         "img": "../assets/images/keyword/graghql.png"
       },
   
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "개념"
@@ -210,7 +210,7 @@
         "color": "#0C344B",
         "img": "../assets/images/keyword/prisma.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "특징"
@@ -241,7 +241,7 @@
         "img":
         "../assets/images/keyword/react.png"
       },
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "예제"
@@ -268,7 +268,7 @@
         "img": "../assets/images/keyword/graghql.png"
       },
   
-      "subjects": [
+      "tags": [
         {
           "id": 1,
           "name": "개념"

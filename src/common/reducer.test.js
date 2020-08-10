@@ -5,7 +5,7 @@ import { devLink } from '../../fixture/data';
 describe('reducer', () => {
   context('when previous state is undefined', () => {
     const initialState = {
-      devlinks: [],
+      devLinks: [],
     };
 
     it('returns initialState', () => {
@@ -18,12 +18,12 @@ describe('reducer', () => {
   describe('setDevLinks', () => {
     it('set devLinks', () => {
       const initialState = {
-        devlinks: [],
+        devLinks: [],
       };
 
       const state = reducer(initialState, setDevLinks(devLink));
 
-      expect(state.devlinks).toEqual(devLink);
+      expect(state.devLinks).toEqual(devLink);
     });
   });
 });

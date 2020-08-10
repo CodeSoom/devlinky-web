@@ -8,18 +8,8 @@ import { devLink } from '../fixture/data';
 
 describe('<Tags />', () => {
   it('renders without crash', () => {
-    const { container } = render(<Tags subjects={devLink.subjects} />);
+    const { container } = render(<Tags tags={devLink.tags} />);
 
-    devLink.subjects.forEach(({ name }, index) => {
-      if (index < 3) {
-        expect(container).toHaveTextContent(name);
-      }
-
-      if (index === 4) {
-        expect(container).toHaveTextContent('...');
-      }
-
-      return null;
-    });
+    devLink.tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
   });
 });

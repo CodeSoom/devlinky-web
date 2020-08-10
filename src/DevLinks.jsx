@@ -37,7 +37,7 @@ export default function DevLinks({ devLinks }) {
               />
             </LinkContainer>
             <Tags
-              subjects={devLink.subjects}
+              tags={devLink.tags}
             />
             <Reviews
               reviews={devLink.reviews}

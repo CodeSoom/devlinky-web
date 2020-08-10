@@ -7,7 +7,7 @@ import get from './common/utils';
 import DevLinks from './DevLinks';
 
 export default function DevLinksContainer() {
-  const devLinks = useSelector(get('devlinks'));
+  const devLinks = useSelector(get('devLinks'));
 
   // TODO: Move to utils.
   const isEmpty = (arr) => arr.length === 0;

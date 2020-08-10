@@ -10,18 +10,8 @@ describe('<Reviews />', () => {
   it('renders without crash', () => {
     const { container } = render(<Reviews reviews={devLink.reviews} />);
 
-    devLink.reviews.forEach(({ name }, index) => {
-      expect(container).toHaveTextContent(name);
-
-      if (index < 4) {
-        expect(container).toHaveTextContent(name);
-      }
-
-      if (index === 5) {
-        expect(container).toHaveTextContent('...');
-      }
-
-      return null;
+    devLink.reviews.forEach((review) => {
+      expect(container).toHaveTextContent(review.name);
     });
   });
 });

@@ -19,14 +19,14 @@ describe('<App />', () => {
     useDispatch.mockImplementation(() => dispatch);
   });
 
-  context('with devlinks', () => {
+  context('with devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: devLinks,
+        devLinks,
       }));
     });
 
-    it('renders devlinks', () => {
+    it('renders devLinks', () => {
       const { container } = render(
         <App />,
       );
@@ -37,42 +37,20 @@ describe('<App />', () => {
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
-      devLinks[0].subjects.forEach(({ name }, index) => {
-        if (index < 3) {
-          expect(container).toHaveTextContent(name);
-        }
+      devLinks[0].tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
 
-        if (index === 4) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
-
-      devLinks[0].reviews.forEach(({ name }, index) => {
-        expect(container).toHaveTextContent(name);
-
-        if (index < 4) {
-          expect(container).toHaveTextContent(name);
-        }
-
-        if (index === 5) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
+      devLinks[0].reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
     });
   });
 
-  context('without devlinks', () => {
+  context('without devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: null,
+        devLinks: null,
       }));
     });
 
-    it('renders devlinks loading..', () => {
+    it('renders devLinks loading..', () => {
       const { container } = render(
         <App />,
       );

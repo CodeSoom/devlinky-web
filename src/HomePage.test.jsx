@@ -19,7 +19,7 @@ test('HomePage ', () => {
   useDispatch.mockImplementation(() => dispatch);
 
   useSelector.mockImplementation((selector) => selector({
-    devlinks: devLinks,
+    devLinks,
   }));
 
   render(
