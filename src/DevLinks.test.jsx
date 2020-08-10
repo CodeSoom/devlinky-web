@@ -8,7 +8,7 @@ import { devLinks } from '../fixture/data';
 
 describe('<DevLinks />', () => {
   context('with devLinks', () => {
-    it('renders without crash', () => {
+    it('show devLinks', () => {
       const { container } = render(<DevLinks devLinks={devLinks} />);
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);

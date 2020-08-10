@@ -7,7 +7,7 @@ import Tags from './Tags';
 import { devLink } from '../fixture/data';
 
 describe('<Tags />', () => {
-  it('renders without crash', () => {
+  it('show Tags', () => {
     const { container } = render(<Tags tags={devLink.tags} />);
 
     devLink.tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));

@@ -7,7 +7,7 @@ import Reviews from './Reviews';
 import { devLink } from '../fixture/data';
 
 describe('<Reviews />', () => {
-  it('renders without crash', () => {
+  it('show Reviews', () => {
     const { container } = render(<Reviews reviews={devLink.reviews} />);
 
     devLink.reviews.forEach((review) => {
