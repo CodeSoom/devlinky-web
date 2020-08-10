@@ -10,16 +10,6 @@ describe('<Tags />', () => {
   it('renders without crash', () => {
     const { container } = render(<Tags subjects={devLink.subjects} />);
 
-    devLink.subjects.forEach(({ name }, index) => {
-      if (index < 3) {
-        expect(container).toHaveTextContent(name);
-      }
-
-      if (index === 4) {
-        expect(container).toHaveTextContent('...');
-      }
-
-      return null;
-    });
+    devLink.subjects.forEach((subject) => expect(container).toHaveTextContent(subject.name));
   });
 });

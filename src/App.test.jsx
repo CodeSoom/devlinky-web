@@ -37,31 +37,9 @@ describe('<App />', () => {
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
-      devLinks[0].subjects.forEach(({ name }, index) => {
-        if (index < 3) {
-          expect(container).toHaveTextContent(name);
-        }
+      devLinks[0].subjects.forEach((subject) => expect(container).toHaveTextContent(subject.name));
 
-        if (index === 4) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
-
-      devLinks[0].reviews.forEach(({ name }, index) => {
-        expect(container).toHaveTextContent(name);
-
-        if (index < 4) {
-          expect(container).toHaveTextContent(name);
-        }
-
-        if (index === 5) {
-          expect(container).toHaveTextContent('...');
-        }
-
-        return null;
-      });
+      devLinks[0].reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
     });
   });
 

@@ -61,18 +61,6 @@ export const devLinks = [
         id: 3,
         name: '등장배경',
       },
-      {
-        id: 4,
-        name: '장단점2',
-      },
-      {
-        id: 5,
-        name: '역사2',
-      },
-      {
-        id: 6,
-        name: '등장배경2',
-      },
     ],
     reviews: [
       {
@@ -85,30 +73,6 @@ export const devLinks = [
       },
       {
         id: 3,
-        name: '통찰력',
-      },
-      {
-        id: 4,
-        name: '가독성',
-      },
-      {
-        id: 5,
-        name: '정보성',
-      },
-      {
-        id: 6,
-        name: '통찰력',
-      },
-      {
-        id: 7,
-        name: '가독성',
-      },
-      {
-        id: 8,
-        name: '정보성',
-      },
-      {
-        id: 9,
         name: '통찰력',
       },
     ],
@@ -209,18 +173,6 @@ export const devLinks = [
         id: 3,
         name: '등장배경',
       },
-      {
-        id: 4,
-        name: '장단점2',
-      },
-      {
-        id: 5,
-        name: '역사2',
-      },
-      {
-        id: 6,
-        name: '등장배경2',
-      },
     ],
     reviews: [
       {
@@ -233,30 +185,6 @@ export const devLinks = [
       },
       {
         id: 3,
-        name: '통찰력',
-      },
-      {
-        id: 4,
-        name: '가독성',
-      },
-      {
-        id: 5,
-        name: '정보성',
-      },
-      {
-        id: 6,
-        name: '통찰력',
-      },
-      {
-        id: 7,
-        name: '가독성',
-      },
-      {
-        id: 8,
-        name: '정보성',
-      },
-      {
-        id: 9,
         name: '통찰력',
       },
     ],
@@ -357,18 +285,6 @@ export const devLinks = [
         id: 3,
         name: '등장배경',
       },
-      {
-        id: 4,
-        name: '장단점2',
-      },
-      {
-        id: 5,
-        name: '역사2',
-      },
-      {
-        id: 6,
-        name: '등장배경2',
-      },
     ],
     reviews: [
       {
@@ -381,30 +297,6 @@ export const devLinks = [
       },
       {
         id: 3,
-        name: '통찰력',
-      },
-      {
-        id: 4,
-        name: '가독성',
-      },
-      {
-        id: 5,
-        name: '정보성',
-      },
-      {
-        id: 6,
-        name: '통찰력',
-      },
-      {
-        id: 7,
-        name: '가독성',
-      },
-      {
-        id: 8,
-        name: '정보성',
-      },
-      {
-        id: 9,
         name: '통찰력',
       },
     ],
