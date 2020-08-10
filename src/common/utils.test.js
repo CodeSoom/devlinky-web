@@ -1,4 +1,4 @@
-import get from './utils';
+import { get, isEmpty } from './utils';
 
 test('get', () => {
   const state = {
@@ -10,4 +10,10 @@ test('get', () => {
 
   expect(getName(state)).toBe('react');
   expect(getAge(state)).toBeUndefined();
+});
+
+test('isEmpty', () => {
+  const array = [];
+
+  expect(isEmpty(array)).toBeTruthy();
 });

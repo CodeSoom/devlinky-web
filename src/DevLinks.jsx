@@ -13,8 +13,10 @@ import DevLinkHeader from './DevLinkHeader';
 import Reviews from './Reviews';
 import Tags from './Tags';
 
+import { isEmpty } from './common/utils';
+
 export default function DevLinks({ devLinks }) {
-  if (!devLinks) {
+  if (isEmpty(devLinks || [])) {
     return <p>로딩중....</p>;
   }
 

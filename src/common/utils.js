@@ -1,3 +1,3 @@
-export default function get(key) {
-  return (obj) => obj[key];
-}
+export const get = (key) => (obj) => obj[key];
+
+export const isEmpty = (arr) => arr.length === 0;
