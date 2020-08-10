@@ -7,7 +7,7 @@ import DevLinks from './DevLinks';
 import { devLinks } from '../fixture/data';
 
 describe('<DevLinks />', () => {
-  context('with devlinks', () => {
+  context('with devLinks', () => {
     it('renders without crash', () => {
       const { container } = render(<DevLinks devLinks={devLinks} />);
 
@@ -19,7 +19,7 @@ describe('<DevLinks />', () => {
     });
   });
 
-  context('without devlinks', () => {
+  context('without devLinks', () => {
     it('show loading..', () => {
       const { container } = render(<DevLinks devLinks={null} />);
 

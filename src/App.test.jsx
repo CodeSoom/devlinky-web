@@ -19,14 +19,14 @@ describe('<App />', () => {
     useDispatch.mockImplementation(() => dispatch);
   });
 
-  context('with devlinks', () => {
+  context('with devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: devLinks,
+        devLinks,
       }));
     });
 
-    it('renders devlinks', () => {
+    it('renders devLinks', () => {
       const { container } = render(
         <App />,
       );
@@ -43,14 +43,14 @@ describe('<App />', () => {
     });
   });
 
-  context('without devlinks', () => {
+  context('without devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: null,
+        devLinks: null,
       }));
     });
 
-    it('renders devlinks loading..', () => {
+    it('renders devLinks loading..', () => {
       const { container } = render(
         <App />,
       );

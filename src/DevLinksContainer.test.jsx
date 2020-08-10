@@ -11,10 +11,10 @@ import { devLinks } from '../fixture/data';
 jest.mock('react-redux');
 
 describe('<DevLinksContainer />', () => {
-  context('with devlinks', () => {
+  context('with devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: devLinks,
+        devLinks,
       }));
     });
 
@@ -31,10 +31,10 @@ describe('<DevLinksContainer />', () => {
     });
   });
 
-  context('without devlinks', () => {
+  context('without devLinks', () => {
     beforeEach(() => {
       useSelector.mockImplementation((selector) => selector({
-        devlinks: null,
+        devLinks: null,
       }));
     });
 

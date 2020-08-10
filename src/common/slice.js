@@ -3,15 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import fetchDevLinks from '../../services/api';
 
 const { actions, reducer } = createSlice({
-  name: 'devlink#',
+  name: 'devLink#',
   initialState: {
-    devlinks: [],
+    devLinks: [],
   },
   reducers: {
-    setDevLinks(state, { payload: devlinks }) {
+    setDevLinks(state, { payload: devLinks }) {
       return {
         ...state,
-        devlinks,
+        devLinks,
       };
     },
   },
@@ -23,8 +23,8 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const devlinks = await fetchDevLinks();
-    dispatch(setDevLinks(devlinks));
+    const devLinks = await fetchDevLinks();
+    dispatch(setDevLinks(devLinks));
   };
 }
 
