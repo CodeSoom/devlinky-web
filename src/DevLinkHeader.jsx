@@ -8,14 +8,16 @@ import {
 } from './styles/DevLinks';
 
 export default function DevLinkHeader({ devLink }) {
+  const { keyword, writtenAt } = devLink;
+
   return (
     <DevLinkHeaderContainer>
       <Keywords>
-        <Keyword objectColor={devLink.keyword.color}>
-          <span>{devLink.keyword.name}</span>
+        <Keyword objectColor={keyword.color}>
+          <span>{keyword.name}</span>
         </Keyword>
       </Keywords>
-      <WrittenAt>{devLink.writtenAt}</WrittenAt>
+      <WrittenAt>{writtenAt}</WrittenAt>
     </DevLinkHeaderContainer>
   );
 }

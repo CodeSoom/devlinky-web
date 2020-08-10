@@ -8,9 +8,11 @@ import { devLink } from '../fixture/data';
 
 describe('<Reviews />', () => {
   it('show Reviews', () => {
-    const { container } = render(<Reviews reviews={devLink.reviews} />);
+    const { reviews } = devLink;
 
-    devLink.reviews.forEach((review) => {
+    const { container } = render(<Reviews reviews={reviews} />);
+
+    reviews.forEach((review) => {
       expect(container).toHaveTextContent(review.name);
     });
   });

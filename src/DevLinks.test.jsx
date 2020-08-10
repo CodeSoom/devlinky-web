@@ -11,11 +11,15 @@ describe('<DevLinks />', () => {
     it('show devLinks', () => {
       const { container } = render(<DevLinks devLinks={devLinks} />);
 
-      expect(container).toHaveTextContent(devLinks[0].keyword.name);
+      devLinks.forEach((devLink) => {
+        const { keyword, tags, reviews } = devLink;
 
-      devLinks[0].tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
+        expect(container).toHaveTextContent(keyword.name);
 
-      devLinks[0].reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
+        tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
+
+        reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
+      });
     });
   });
 
