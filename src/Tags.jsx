@@ -5,10 +5,10 @@ import { TagsContainer } from './styles/DevLinks';
 export default function Tags({ subjects }) {
   return (
     <TagsContainer>
-      {subjects.map((subjectItem) => (
-        <button type="button" key={subjectItem.id}>
+      {subjects.map((subject) => (
+        <button type="button" key={subject.id}>
           #
-          {subjectItem.name}
+          {subject.name}
         </button>
       ))}
     </TagsContainer>

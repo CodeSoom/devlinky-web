@@ -7,10 +7,10 @@ import {
 export default function Reviews({ reviews }) {
   return (
     <ReviewsContainer>
-      {reviews.map((reviewItem) => (
-        <button type="button" key={reviewItem.id}>
+      {reviews.map((review) => (
+        <button type="button" key={review.id}>
           #
-          {reviewItem.name}
+          {review.name}
         </button>
       ))}
     </ReviewsContainer>
