@@ -13,7 +13,7 @@ describe('<DevLinks />', () => {
 
       expect(container).toHaveTextContent(devLinks[0].keyword.name);
 
-      devLinks[0].subjects.forEach((subject) => expect(container).toHaveTextContent(subject.name));
+      devLinks[0].tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
 
       devLinks[0].reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
     });

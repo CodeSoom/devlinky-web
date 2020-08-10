@@ -2,13 +2,13 @@ import React from 'react';
 
 import { TagsContainer } from './styles/DevLinks';
 
-export default function Tags({ subjects }) {
+export default function Tags({ tags }) {
   return (
     <TagsContainer>
-      {subjects.map((subject) => (
-        <button type="button" key={subject.id}>
+      {tags.map((tag) => (
+        <button type="button" key={tag.id}>
           #
-          {subject.name}
+          {tag.name}
         </button>
       ))}
     </TagsContainer>

@@ -8,7 +8,7 @@ export const devLink = {
     color: '#0C344B',
     img: '../assets/images/keyword/prisma.png',
   },
-  subjects: [
+  tags: [
     {
       id: 1,
       name: '장단점',
@@ -48,7 +48,7 @@ export const devLinks = [
       color: '#0C344B',
       img: '../assets/images/keyword/prisma.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -91,7 +91,7 @@ export const devLinks = [
       img:
         '../assets/images/keyword/react.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -130,7 +130,7 @@ export const devLinks = [
       img: '../assets/images/keyword/graghql.png',
     },
 
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '개념',
@@ -160,7 +160,7 @@ export const devLinks = [
       color: '#0C344B',
       img: '../assets/images/keyword/prisma.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -203,7 +203,7 @@ export const devLinks = [
       img:
         '../assets/images/keyword/react.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -242,7 +242,7 @@ export const devLinks = [
       img: '../assets/images/keyword/graghql.png',
     },
 
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '개념',
@@ -272,7 +272,7 @@ export const devLinks = [
       color: '#0C344B',
       img: '../assets/images/keyword/prisma.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -315,7 +315,7 @@ export const devLinks = [
       img:
         '../assets/images/keyword/react.png',
     },
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '장단점',
@@ -354,7 +354,7 @@ export const devLinks = [
       img: '../assets/images/keyword/graghql.png',
     },
 
-    subjects: [
+    tags: [
       {
         id: 1,
         name: '개념',
