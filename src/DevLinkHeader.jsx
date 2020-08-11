@@ -6,7 +6,7 @@ import { colors, textStyles } from './styles/common/designSystem';
 
 const { title } = textStyles;
 
-const DevLinkHeaderContainer = styled.div({
+const DevLinkHeaderWrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -53,13 +53,13 @@ export default function DevLinkHeader({ devLink }) {
   const { keyword, writtenAt } = devLink;
 
   return (
-    <DevLinkHeaderContainer>
+    <DevLinkHeaderWrapper>
       <Keywords>
         <Keyword objectColor={keyword.color}>
           <span>{keyword.name}</span>
         </Keyword>
       </Keywords>
       <WrittenAt>{writtenAt}</WrittenAt>
-    </DevLinkHeaderContainer>
+    </DevLinkHeaderWrapper>
   );
 }

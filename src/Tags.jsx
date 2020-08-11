@@ -6,7 +6,7 @@ import { colors, textStyles } from './styles/common/designSystem';
 
 const { subTitle } = textStyles;
 
-const TagsContainer = styled.div({
+const TagsWrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
   '& button': {
@@ -33,13 +33,13 @@ const TagsContainer = styled.div({
 
 export default function Tags({ tags }) {
   return (
-    <TagsContainer>
+    <TagsWrapper>
       {tags.map((tag) => (
         <button type="button" key={tag.id}>
           #
           {tag.name}
         </button>
       ))}
-    </TagsContainer>
+    </TagsWrapper>
   );
 }

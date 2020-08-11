@@ -8,7 +8,7 @@ import { loadInitialData } from './common/slice';
 
 import DevLinksContainer from './DevLinksContainer';
 
-const HomePageContainer = styled.div({
+const HomePageWrapper = styled.div({
   height: '100vh',
   padding: '0px 50px',
   display: 'flex',
@@ -23,8 +23,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <HomePageContainer>
+    <HomePageWrapper>
       <DevLinksContainer />
-    </HomePageContainer>
+    </HomePageWrapper>
   );
 }

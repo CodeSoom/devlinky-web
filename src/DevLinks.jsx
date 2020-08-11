@@ -12,7 +12,7 @@ import Tags from './Tags';
 
 import { isEmpty } from './common/utils';
 
-const Container = styled.div({
+const Wrapper = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   flexWrap: 'wrap',
@@ -37,7 +37,7 @@ const DevLinkBody = styled.div({
   fontFamily: 'Nanum Pen Script, cursive',
 });
 
-const LinkContainer = styled.div({
+const LinkWrapper = styled.div({
   backgroundColor: colors.transparent,
   '& a': {
     // Link 카드 전체
@@ -47,7 +47,7 @@ const LinkContainer = styled.div({
     margin: '0',
     padding: '0',
     '& div': {
-      // Link 타이틀, URL, 도메인이름 등의 Container
+      // Link 타이틀, URL, 도메인이름 등의 Wrapper
       margin: '2px',
       padding: '0',
     },
@@ -75,12 +75,12 @@ export default function DevLinks({ devLinks }) {
   }
 
   return (
-    <Container>
+    <Wrapper>
       {devLinks.map((devLink) => (
         <DevLink key={devLink.id}>
           <DevLinkHeader devLink={devLink} />
           <DevLinkBody>
-            <LinkContainer>
+            <LinkWrapper>
               <ReactTinyLink
                 cardSize="medium"
                 showGraphic
@@ -89,12 +89,12 @@ export default function DevLinks({ devLinks }) {
                 minLine={1}
                 url={devLink.url}
               />
-            </LinkContainer>
+            </LinkWrapper>
             <Tags tags={devLink.tags} />
             <Reviews reviews={devLink.reviews} />
           </DevLinkBody>
         </DevLink>
       ))}
-    </Container>
+    </Wrapper>
   );
 }

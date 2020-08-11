@@ -6,7 +6,7 @@ import { colors, textStyles } from './styles/common/designSystem';
 
 const { note } = textStyles;
 
-const ReviewsContainer = styled.span({
+const ReviewsWrapper = styled.span({
   display: 'flex',
   flexDirection: 'row',
   '& button': {
@@ -35,13 +35,13 @@ const ReviewsContainer = styled.span({
 
 export default function Reviews({ reviews }) {
   return (
-    <ReviewsContainer>
+    <ReviewsWrapper>
       {reviews.map((review) => (
         <button type="button" key={review.id}>
           #
           {review.name}
         </button>
       ))}
-    </ReviewsContainer>
+    </ReviewsWrapper>
   );
 }
