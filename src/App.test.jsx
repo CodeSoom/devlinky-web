@@ -17,13 +17,17 @@ describe('App with router', () => {
     useDispatch.mockImplementation(() => dispatch);
   });
 
+  function renderApp({ path }) {
+    return render((
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
+    ));
+  }
+
   context('with any path ', () => {
     it('shows App name', () => {
-      const { container } = render(
-        <MemoryRouter initialEntries={['/']}>
-          <App />
-        </MemoryRouter>,
-      );
+      const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent(/#Dev/i);
     });
@@ -31,11 +35,7 @@ describe('App with router', () => {
     it('shows message', () => {
       global.alert = jest.fn();
 
-      const { getByText } = render(
-        <MemoryRouter initialEntries={['/']}>
-          <App />
-        </MemoryRouter>,
-      );
+      const { getByText } = renderApp({ path: '/' });
 
       fireEvent.click(getByText('로 그 인'));
 
@@ -46,11 +46,7 @@ describe('App with router', () => {
 
   context('with path /', () => {
     it('shows loading message', () => {
-      const { container } = render(
-        <MemoryRouter initialEntries={['/']}>
-          <App />
-        </MemoryRouter>,
-      );
+      const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent('로딩중');
     });
@@ -58,11 +54,7 @@ describe('App with router', () => {
 
   context('with path /login', () => {
     it('shows page name', () => {
-      const { container } = render(
-        <MemoryRouter initialEntries={['/login']}>
-          <App />
-        </MemoryRouter>,
-      );
+      const { container } = renderApp({ path: '/login' });
 
       expect(container).toHaveTextContent('Login');
     });
@@ -70,11 +62,7 @@ describe('App with router', () => {
 
   context('with invalid path', () => {
     it('renders the not found page', () => {
-      const { container } = render(
-        <MemoryRouter initialEntries={['/xxx']}>
-          <App />
-        </MemoryRouter>,
-      );
+      const { container } = renderApp({ path: '/xxx' });
 
       expect(container).toHaveTextContent('Not Found');
     });
