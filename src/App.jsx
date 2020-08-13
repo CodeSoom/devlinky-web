@@ -2,9 +2,13 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { Switch, Route } from 'react-router-dom';
+
 import { colors } from './styles/common/designSystem';
 
 import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import NotFoundPage from './NotFoundPage';
 
 const Headers = styled.header({
   display: 'flex',
@@ -28,12 +32,23 @@ const Headers = styled.header({
 });
 
 export default function App() {
+  const handleClick = () => {
+    alert('준비중입니다. #Dev(v2)를 기대해주세요:)');
+  };
+
   return (
     <>
       <Headers>
         <span>#Dev</span>
+        <button type="button" onClick={handleClick}>
+          로 그 인
+        </button>
       </Headers>
-      <HomePage />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
     </>
   );
 }
