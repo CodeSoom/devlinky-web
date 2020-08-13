@@ -8,6 +8,7 @@ import { colors } from './styles/common/designSystem';
 
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
+import NotFoundPage from './NotFoundPage';
 
 const Headers = styled.header({
   display: 'flex',
@@ -46,6 +47,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/login" component={LoginPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </>
   );

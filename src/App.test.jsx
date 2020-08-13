@@ -67,4 +67,16 @@ describe('App with router', () => {
       expect(container).toHaveTextContent('Login');
     });
   });
+
+  context('with invalid path', () => {
+    it('renders the not found page', () => {
+      const { container } = render(
+        <MemoryRouter initialEntries={['/xxx']}>
+          <App />
+        </MemoryRouter>,
+      );
+
+      expect(container).toHaveTextContent('Not Found');
+    });
+  });
 });
