@@ -27,7 +27,7 @@ module.exports = (env, argv) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: path.resolve(__dirname, 'index.html'),
     }),
     new Dotenv({
       path: argv.mode === 'development'
