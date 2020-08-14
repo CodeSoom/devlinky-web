@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import { colors } from './styles/common/designSystem';
 
@@ -32,17 +32,17 @@ const Headers = styled.header({
 });
 
 export default function App() {
-  const handleClick = () => {
-    alert('준비중입니다. #Dev(v2)를 기대해주세요:)');
-  };
-
   return (
     <>
       <Headers>
-        <span>#Dev</span>
-        <button type="button" onClick={handleClick}>
-          로 그 인
-        </button>
+        <Link to="/">
+          <span>#Dev</span>
+        </Link>
+        <Link to="/login">
+          <button type="button">
+            로 그 인
+          </button>
+        </Link>
       </Headers>
       <Switch>
         <Route exact path="/" component={HomePage} />
