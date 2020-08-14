@@ -1,3 +1,8 @@
+export const userInfo = {
+  id: 'dev@devlink.com',
+  img: 'dev_img_urls',
+};
+
 export const devLink = {
   id: 1,
   url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',

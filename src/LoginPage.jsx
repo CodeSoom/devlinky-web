@@ -20,6 +20,7 @@ export default function LoginPage() {
     <LoginPageWrapper>
       <span>Login 페이지는 준비중입니다</span>
       <span>#Dev(v2)를 기대해주세요 &#x1F603; </span>
+      {/* <button type="button" onClick={() => signInWithGithub()}>Sign in with Google</button> */}
     </LoginPageWrapper>
   );
 }

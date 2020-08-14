@@ -5,6 +5,8 @@ import fetchDevLinks from '../../services/api';
 const { actions, reducer } = createSlice({
   name: 'devLink#',
   initialState: {
+    accessToken: '',
+    userInfo: null,
     devLinks: [],
   },
   reducers: {
@@ -14,11 +16,25 @@ const { actions, reducer } = createSlice({
         devLinks,
       };
     },
+    setAccessToken(state, { payload: accessToken }) {
+      return {
+        ...state,
+        accessToken,
+      };
+    },
+    setUserInfo(state, { payload: userInfo }) {
+      return {
+        ...state,
+        userInfo,
+      };
+    },
   },
 });
 
 export const {
   setDevLinks,
+  setAccessToken,
+  setUserInfo,
 } = actions;
 
 export function loadInitialData() {
