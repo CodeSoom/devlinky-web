@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import DevLink from './DevLink';
 
-import { devLinks } from '../fixture/data';
+import { devLinks } from '../../fixture/data';
 
 describe('<DevLink />', () => {
   const devLink = devLinks[0];

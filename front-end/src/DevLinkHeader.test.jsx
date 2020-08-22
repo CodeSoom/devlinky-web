@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import DevLinkHeader from './DevLinkHeader';
 
-import { devLink } from '../fixture/data';
+import { devLink } from '../../fixture/data';
 
 describe('<DevLinkHeader />', () => {
   it('show DevLinkHeader', () => {

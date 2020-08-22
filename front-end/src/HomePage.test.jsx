@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './HomePage';
 
-import { devLinks } from '../fixture/data';
+import { devLinks } from '../../fixture/data';
 
 import { loadInitialData } from './common/slice';
 
