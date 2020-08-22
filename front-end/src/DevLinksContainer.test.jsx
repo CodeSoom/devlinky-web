@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import DevLinksContainer from './DevLinksContainer';
 
-import { devLinks } from '../fixture/data';
+import { devLinks } from '../../fixture/data';
 
 jest.mock('react-redux');
 

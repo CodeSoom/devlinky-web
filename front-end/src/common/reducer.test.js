@@ -1,6 +1,6 @@
 import reducer, { setDevLinks } from './slice';
 
-import { devLink } from '../../fixture/data';
+import { devLink } from '../../../fixture/data';
 
 describe('reducer', () => {
   context('when previous state is undefined', () => {

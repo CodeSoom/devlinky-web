@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import DevLinks from './DevLinks';
 
-import { devLinks } from '../fixture/data';
+import { devLinks } from '../../fixture/data';
 
 describe('<DevLinks />', () => {
   context('with devLinks', () => {

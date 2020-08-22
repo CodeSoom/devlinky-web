@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import Reviews from './Reviews';
 
-import { devLink } from '../fixture/data';
+import { devLink } from '../../fixture/data';
 
 describe('<Reviews />', () => {
   it('show Reviews', () => {
