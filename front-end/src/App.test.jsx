@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import App from './App';
 
 jest.mock('react-redux');
+jest.mock('../services/firebase/firebase.js');
 
 describe('App with router', () => {
   const dispatch = jest.fn();
@@ -18,11 +19,11 @@ describe('App with router', () => {
   });
 
   function renderApp({ path }) {
-    return render((
+    return render(
       <MemoryRouter initialEntries={[path]}>
         <App />
-      </MemoryRouter>
-    ));
+      </MemoryRouter>,
+    );
   }
 
   context('with any path ', () => {
@@ -39,14 +40,6 @@ describe('App with router', () => {
       const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent('로딩중');
-    });
-  });
-
-  context('with path /login', () => {
-    it('shows page name', () => {
-      const { container } = renderApp({ path: '/login' });
-
-      expect(container).toHaveTextContent('Login');
     });
   });
 
