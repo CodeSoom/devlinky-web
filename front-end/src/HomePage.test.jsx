@@ -12,6 +12,7 @@ import { loadInitialData } from './common/slice';
 
 jest.mock('react-redux');
 jest.mock('./common/slice.js');
+jest.mock('../services/firebase/firebase.js');
 
 test('HomePage ', () => {
   const dispatch = jest.fn();
@@ -22,9 +23,7 @@ test('HomePage ', () => {
     devLinks,
   }));
 
-  render(
-    <HomePage />,
-  );
+  render(<HomePage />);
 
   expect(dispatch).toBeCalledWith(loadInitialData());
 });
