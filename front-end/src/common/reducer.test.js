@@ -1,4 +1,10 @@
-import reducer, { setDevLinks, setAccessToken, setUserInfo } from './slice';
+import reducer, {
+  setDevLinks,
+  setAccessToken,
+  setUserInfo,
+  resetAccessToken,
+  resetUserInfo,
+} from './slice';
 
 import { devLink } from '../../../fixture/data';
 
@@ -71,6 +77,46 @@ describe('reducer', () => {
       const state = reducer(initialState, setUserInfo(userInfo));
 
       expect(state.userInfo).toEqual(userInfo);
+    });
+  });
+
+  describe('resetAccessToken', () => {
+    it('reset accessToken', () => {
+      const initialState = {
+        accessToken: {
+          github: 'GITHUB_ACCESS_TOKEN',
+          firebase: 'FIREBASE_ACCESS_TOKEN',
+        },
+        userInfo: {
+          uid: 'uid',
+          email: 'email',
+          photoURL: 'photoURL',
+        },
+      };
+
+      const state = reducer(initialState, resetAccessToken());
+
+      expect(state.accessToken).toEqual(null);
+    });
+  });
+
+  describe('resetUserInfo', () => {
+    it('reset userInfo', () => {
+      const initialState = {
+        accessToken: {
+          github: 'GITHUB_ACCESS_TOKEN',
+          firebase: 'FIREBASE_ACCESS_TOKEN',
+        },
+        userInfo: {
+          uid: 'uid',
+          email: 'email',
+          photoURL: 'photoURL',
+        },
+      };
+
+      const state = reducer(initialState, resetUserInfo());
+
+      expect(state.userInfo).toEqual(null);
     });
   });
 });

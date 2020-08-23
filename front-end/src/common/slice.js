@@ -2,9 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import fetchDevLinks from '../../services/api';
 
-import { githubOAuthLogin } from '../../services/firebase/firebase';
+import {
+  githubOAuthLogin,
+  githubOAuthLogout,
+} from '../../services/firebase/firebase';
 
-import { saveItem } from '../../services/storage/localStorage';
+import { saveItem, removeItem } from '../../services/storage/localStorage';
 
 const { actions, reducer } = createSlice({
   name: 'devLink#',
@@ -32,10 +35,28 @@ const { actions, reducer } = createSlice({
         userInfo,
       };
     },
+    resetAccessToken(state) {
+      return {
+        ...state,
+        accessToken: null,
+      };
+    },
+    resetUserInfo(state) {
+      return {
+        ...state,
+        userInfo: null,
+      };
+    },
   },
 });
 
-export const { setDevLinks, setAccessToken, setUserInfo } = actions;
+export const {
+  setDevLinks,
+  setAccessToken,
+  setUserInfo,
+  resetAccessToken,
+  resetUserInfo,
+} = actions;
 
 export function loadInitialData() {
   return async (dispatch) => {
@@ -73,5 +94,13 @@ export function login() {
     dispatch(setUserInfo(userInfo));
   };
 }
+
+export const logout = () => async (dispatch) => {
+  removeItem('accessToken');
+
+  await githubOAuthLogout();
+  dispatch(resetAccessToken());
+  dispatch(resetUserInfo());
+};
 
 export default reducer;

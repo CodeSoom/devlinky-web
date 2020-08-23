@@ -8,6 +8,9 @@ import {
   login,
   setAccessToken,
   setUserInfo,
+  logout,
+  resetAccessToken,
+  resetUserInfo,
 } from './slice';
 
 const mockStore = configureStore(getDefaultMiddleware());
@@ -55,6 +58,31 @@ describe('actions', () => {
 
       expect(actions[0]).toEqual(setAccessToken(mockAccessToken));
       expect(actions[1]).toEqual(setUserInfo(mockUserInfo));
+    });
+  });
+
+  describe('logout', () => {
+    beforeEach(() => {
+      store = mockStore({
+        accessToken: {
+          github: 'GITHUB_ACCESS_TOKEN',
+          firebase: 'FIREBASE_ACCESS_TOKEN',
+        },
+        userInfo: {
+          uid: 'user_uid',
+          email: 'dev@devlink.com',
+          photoURL: 'https://some-new-url-here',
+        },
+      });
+    });
+
+    it('runs setAccessToken and setUserInfo', async () => {
+      await store.dispatch(logout());
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(resetAccessToken());
+      expect(actions[1]).toEqual(resetUserInfo());
     });
   });
 });

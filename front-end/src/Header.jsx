@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { colors } from './styles/common/designSystem';
 
-import { login, setAccessToken } from './common/slice';
+import { login, setAccessToken, logout } from './common/slice';
 
 import { loadItem } from '../services/storage/localStorage';
 
@@ -52,6 +52,10 @@ export default function Header() {
     dispatch(login());
   };
 
+  const handleClickLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <Wrapper>
       <Link to="/">
@@ -60,7 +64,7 @@ export default function Header() {
       <h1>{userInfo ? `${userInfo.email} 님 반갑습니다` : ''}</h1>
 
       {accessToken ? (
-        <button type="button">로 그 아 웃</button>
+        <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
       ) : (
         <button type="button" onClick={handleClickLogin}>
           로 그 인

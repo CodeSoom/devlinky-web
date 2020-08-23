@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login, setAccessToken } from './common/slice';
+import { login, setAccessToken, logout } from './common/slice';
 
 import { loadItem } from '../services/storage/localStorage';
 
@@ -116,6 +116,34 @@ describe('<Header />', () => {
 
       fireEvent.click(getByText('로 그 인'));
       expect(dispatch).toBeCalledWith(login());
+    });
+  });
+
+  context('when logout button is clicked', () => {
+    beforeEach(() => {
+      useDispatch.mockImplementation(() => dispatch);
+      useSelector.mockImplementation((selector) => selector({
+        accessToken: {
+          github: 'GITHUB_ACCESS_TOKEN',
+          firebase: 'FIREBASE_ACCESS_TOKEN',
+        },
+        userInfo: {
+          uid: 'uid',
+          email: 'email',
+          photoURL: 'photoURL',
+        },
+      }));
+    });
+
+    it('occur login', () => {
+      const { getByText } = render(
+        <MemoryRouter initialEntries={['/']}>
+          <Header />
+        </MemoryRouter>,
+      );
+
+      fireEvent.click(getByText('로 그 아 웃'));
+      expect(dispatch).toBeCalledWith(logout());
     });
   });
 });
