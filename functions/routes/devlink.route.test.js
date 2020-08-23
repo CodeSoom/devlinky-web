@@ -37,4 +37,34 @@ describe('/devlink', () => {
       });
     });
   });
+
+  describe('GET /devlink/all', () => {
+    context('when devlinkService.readAll is success', () => {
+      beforeEach(() => {
+        devlinkService.readAll.mockResolvedValue([devLink]);
+      });
+  
+      it('returns status code of 201 and true', async () => {
+        const response = await request(app).get('/devlink/all').send();
+  
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual([devLink]);
+      });
+    });
+
+    context('when devlinkService.readAll is failed', () => {
+      beforeEach(() => {
+        devlinkService.readAll.mockRejectedValue('error');
+      });
+  
+      it('returns status code of 500', async () => {
+        const response = await request(app).get('/devlink/all').send();
+  
+        expect(response.status).toBe(500);
+        expect(response.text).toEqual('error');
+        expect(response.body).toEqual({});
+      });
+    });
+    
+  });
 });
