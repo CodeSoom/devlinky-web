@@ -5,6 +5,10 @@ const devlinkService = {
     const result = await devlinkRepository.insert(newDevlink);
     return result;
   },
+  async readAll() {
+    const devlinks = await devlinkRepository.selectAll();
+    return devlinks;
+  },
 };
 
 module.exports = devlinkService;

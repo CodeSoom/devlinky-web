@@ -4,10 +4,8 @@ const devlinkService = require('../services/devlink.service');
 
 const router = express.Router();
 
-router.post("/", async (request, response) =>  {
-
+router.post('/', async (request, response) => {
   try {
-
     const newDevlink = {
       url: request.body.url,
       writtenAt: request.body.writtenAt,
@@ -17,16 +15,24 @@ router.post("/", async (request, response) =>  {
       createdAt: new Date().toISOString(),
       updatedAt: null,
       deletedAt: null,
-    }
+    };
 
     const devlink = await devlinkService.create(newDevlink);
 
     return response.status(201).json(devlink);
-
   } catch (error) {
-      return response.status(500).send(error);  
+    return response.status(500).send(error);
   }
-  
+});
+
+router.get('/all', async (request, response) => {
+  try {
+    const devlinks = await devlinkService.readAll();
+
+    return response.status(201).json(devlinks);
+  } catch (error) {
+    return response.status(500).send(error);
+  }
 });
 
 module.exports = router;
