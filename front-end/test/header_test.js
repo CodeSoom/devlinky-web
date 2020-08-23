@@ -1,10 +1,7 @@
-const assert = require('assert');
-
 Feature('Header');
 
 const pages = [
   '/',
-  '/login',
   '/not-exist',
 ];
 
@@ -66,14 +63,4 @@ Scenario('로고를 클릭하면 메인 페이지가 보인다.', (I) => {
 
     I.see(devLink.writtenAt);
   });
-});
-
-Scenario('로그인 버튼을 클릭하면 로그인 페이지가 보인다.', async (I) => {
-  I.amOnPage('/');
-
-  I.click('로 그 인');
-
-  const url = await I.grabCurrentUrl();
-
-  assert.equal(/\/login/.test(url), true);
 });

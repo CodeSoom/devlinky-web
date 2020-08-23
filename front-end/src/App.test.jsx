@@ -43,14 +43,6 @@ describe('App with router', () => {
     });
   });
 
-  context('with path /login', () => {
-    it('shows page name', () => {
-      const { container } = renderApp({ path: '/login' });
-
-      expect(container).toHaveTextContent('Login');
-    });
-  });
-
   context('with invalid path', () => {
     it('renders the not found page', () => {
       const { container } = renderApp({ path: '/xxx' });
