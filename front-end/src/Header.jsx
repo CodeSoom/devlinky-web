@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 
 import { colors } from './styles/common/designSystem';
 
-import { login } from './common/slice';
+import { login, setAccessToken } from './common/slice';
+
+import { loadItem } from '../services/storage/localStorage';
 
 import { get } from './common/utils';
 
@@ -36,9 +38,15 @@ const Wrapper = styled.header({
 export default function Header() {
   const dispatch = useDispatch();
 
+  const localToken = loadItem('accessToken');
+
   const accessToken = useSelector(get('accessToken'));
 
   const userInfo = useSelector(get('userInfo'));
+
+  if (localToken && !(userInfo || accessToken)) {
+    dispatch(setAccessToken(localToken)); // TODO : 임시용, 토큰 관리 방법 논의 후 자동 로그인 구현 예정
+  }
 
   const handleClickLogin = () => {
     dispatch(login());

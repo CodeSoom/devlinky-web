@@ -6,20 +6,24 @@ import { MemoryRouter } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { login } from './common/slice';
+import { login, setAccessToken } from './common/slice';
+
+import { loadItem } from '../services/storage/localStorage';
 
 import Header from './Header';
 
 jest.mock('react-redux');
 jest.mock('./common/slice');
 jest.mock('../services/firebase/firebase.js');
+jest.mock('../services/storage/localStorage');
 
 describe('<Header />', () => {
   const dispatch = jest.fn();
 
-  context('without accessToken', () => {
+  context('without token in localStorage', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
+      loadItem.mockImplementation(() => null);
       useSelector.mockImplementation((selector) => selector({
         accessToken: null,
         userInfo: null,
@@ -38,7 +42,35 @@ describe('<Header />', () => {
     });
   });
 
-  context('with accessToken', () => {
+  context('with token in localStorage && without accessToken and useInfo', () => {
+    beforeEach(() => {
+      useDispatch.mockImplementation(() => dispatch);
+      loadItem.mockImplementation(() => ({
+        github: 'GITHUB_ACCESS_TOKEN',
+        firebase: 'FIREBASE_ACCESS_TOKEN',
+      }));
+
+      useSelector.mockImplementation((selector) => selector({
+        accessToken: null,
+        userInfo: null,
+      }));
+    });
+
+    it('occurs dispatch', () => {
+      render(
+        <MemoryRouter initialEntries={['/']}>
+          <Header />
+        </MemoryRouter>,
+      );
+
+      expect(dispatch).toBeCalledWith(setAccessToken({
+        github: 'GITHUB_ACCESS_TOKEN',
+        firebase: 'FIREBASE_ACCESS_TOKEN',
+      }));
+    });
+  });
+
+  context('with token in localStorage && with accessToken and useInfo', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
       useSelector.mockImplementation((selector) => selector({

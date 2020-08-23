@@ -4,6 +4,8 @@ import fetchDevLinks from '../../services/api';
 
 import { githubOAuthLogin } from '../../services/firebase/firebase';
 
+import { saveItem } from '../../services/storage/localStorage';
+
 const { actions, reducer } = createSlice({
   name: 'devLink#',
   initialState: {
@@ -52,6 +54,11 @@ export function login() {
       github: response.credential.accessToken,
       firebase: firebaseUserIdToken,
     };
+
+    saveItem('accessToken', {
+      github: response.credential.accessToken,
+      firebase: firebaseUserIdToken,
+    });
 
     dispatch(setAccessToken(accessToken));
 
