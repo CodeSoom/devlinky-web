@@ -15,7 +15,7 @@ import {
 
 const mockStore = configureStore(getDefaultMiddleware());
 
-jest.mock('../../services/api');
+jest.mock('../../services/api/api');
 jest.mock('../../services/firebase/firebase.js');
 
 describe('actions', () => {
