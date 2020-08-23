@@ -1,6 +1,6 @@
 import fetchDevLinks from './api';
 
-import { devLinks } from '../../fixture/data';
+import { devLinks } from '../../../fixture/data';
 
 describe('api', () => {
   const mockFetch = (data) => {
