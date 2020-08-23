@@ -20,4 +20,4 @@ coverage
 dist
 
 ## env
-config/.env.*
+# config/.env.*
