@@ -8,8 +8,6 @@ import DevLinkHeader from './DevLinkHeader';
 import DevLinkBody from './DevLinkBody';
 import DevLinkFooter from './DevLinkFooter';
 
-import { isEmpty } from './common/utils';
-
 const Wrapper = styled.div({
   margin: '10px',
   padding: '5px 8px',
@@ -26,10 +24,6 @@ const Wrapper = styled.div({
 });
 
 export default function DevLink({ devLink }) {
-  if (isEmpty(devLink || [])) {
-    return <p>로딩중....</p>;
-  }
-
   return (
     <Wrapper>
       <DevLinkHeader devLink={devLink} />
