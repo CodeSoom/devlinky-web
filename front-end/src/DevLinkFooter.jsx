@@ -7,7 +7,6 @@ import {
   faThumbsUp, faAt, faBookmark,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { isEmpty } from './common/utils';
 import { colors } from './styles/common/designSystem';
 
 const Wrapper = styled.div({
