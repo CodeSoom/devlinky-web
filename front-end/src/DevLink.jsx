@@ -34,7 +34,7 @@ export default function DevLink({ devLink }) {
     <Wrapper>
       <DevLinkHeader devLink={devLink} />
       <DevLinkBody devLink={devLink} />
-      <DevLinkFooter devLink={devLink} />
+      <DevLinkFooter />
     </Wrapper>
   );
 }

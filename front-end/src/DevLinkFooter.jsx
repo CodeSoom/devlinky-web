@@ -65,11 +65,7 @@ const Bookmark = styled.div({
   },
 });
 
-export default function DevLinkFooter({ devLink }) {
-  if (isEmpty(devLink || [])) {
-    return <p>로딩중....</p>;
-  }
-
+export default function DevLinkFooter() {
   return (
     <Wrapper>
       <Like>
