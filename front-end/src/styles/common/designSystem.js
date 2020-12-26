@@ -1,10 +1,15 @@
 export const colors = {
   white: '#FFF',
   black: '#000',
+  gray: {
+    dark: '#b6b4b4',
+    light: '#eeeeeedc',
+  },
   blue: {
     dark: '#343a40',
-    sky: '#61dafb',
+    sky: '#4e8ed8',
   },
+  green: '#00ad71',
   orange: '#F5A520',
   shadow: '#dcdcdc',
   transparent: 'Transparent',
