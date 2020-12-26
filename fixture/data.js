@@ -10,7 +10,6 @@ const devLink = {
   tags: [{
     id: 'uuid2',
     name: 'React',
-    color: '#61dafb',
   }],
   comment: "react의 간단 소개",
   createdAt: '2020-02-01 14:10',
@@ -29,7 +28,6 @@ const devLinks = [
     tags: [{
       id: 'uuid2',
       name: 'React',
-      color: '#61dafb',
     }],
     comment: "react의 간단 소개",
     createdAt: '2020-02-01 14:10',
@@ -46,7 +44,6 @@ const devLinks = [
     tags: [{
       id: 'uuid2',
       name: 'React',
-      color: '#61dafb',
     }],
     comment: "react의 간단 소개",
     createdAt: '2020-02-01 14:10',
@@ -63,7 +60,6 @@ const devLinks = [
     tags: [{
       id: 'uuid2',
       name: 'React',
-      color: '#61dafb',
     }],
     comment: "react의 간단 소개",
     createdAt: '2020-02-01 14:10',
