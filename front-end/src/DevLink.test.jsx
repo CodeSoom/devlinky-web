@@ -4,30 +4,22 @@ import { render } from '@testing-library/react';
 
 import DevLink from './DevLink';
 
-import { devLinks } from '../../fixture/data';
+import { devLink } from '../../fixture/data';
 
 describe('<DevLink />', () => {
-  const devLink = devLinks[0];
+  it('show devLink', () => {
+    const { container, getByAltText } = render(<DevLink devLink={devLink} />);
 
-  context('with devLink', () => {
-    it('show devLink', () => {
-      const { container } = render(<DevLink devLink={devLink} />);
+    expect(getByAltText('프로필 사진')).toHaveAttribute('src', devLink.firstDevlinker.img);
+    expect(container).toHaveTextContent(devLink.firstDevlinker.id);
+    expect(container).toHaveTextContent(devLink.createdAt);
 
-      const { keyword, tags, reviews } = devLink;
+    devLink.tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
+    expect(getByAltText('링크 썸네일')).toHaveAttribute('src', devLink.thumbnamil);
+    expect(container).toHaveTextContent(devLink.title);
 
-      expect(container).toHaveTextContent(keyword.name);
-
-      tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
-
-      reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
-    });
-  });
-
-  context('without devLink', () => {
-    it('show loading..', () => {
-      const { container } = render(<DevLink devLink={null} />);
-
-      expect(container).toHaveTextContent('로딩중....');
-    });
+    expect(container).toHaveTextContent('좋아요');
+    expect(container).toHaveTextContent('맨션');
+    expect(container).toHaveTextContent('북마크');
   });
 });
