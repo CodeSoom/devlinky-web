@@ -4,8 +4,6 @@ import styled from '@emotion/styled';
 
 import { colors } from './styles/common/designSystem';
 
-import { isEmpty } from './common/utils';
-
 const Wrapper = styled.div({
   padding: '10px 0px',
   borderTop: `${colors.gray.light} 1px solid`,
@@ -54,10 +52,6 @@ const DevLinkCard = styled.div({
 });
 
 export default function DevLinkBody({ devLink }) {
-  if (isEmpty(devLink || [])) {
-    return <p>로딩중....</p>;
-  }
-
   const handleClick = () => {
     window.open(devLink.url, '_blank');
   };
