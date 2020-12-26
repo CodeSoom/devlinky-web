@@ -4,22 +4,23 @@ import { render } from '@testing-library/react';
 
 import DevLinks from './DevLinks';
 
-import { devLinks } from '../../fixture/data';
+import { devLink, devLinks } from '../../fixture/data';
 
 describe('<DevLinks />', () => {
   context('with devLinks', () => {
-    it('show devLinks', () => {
+    it('show devLink', () => {
       const { container } = render(<DevLinks devLinks={devLinks} />);
 
-      devLinks.forEach((devLink) => {
-        const { keyword, tags, reviews } = devLink;
+      expect(container).toHaveTextContent(devLink.firstDevlinker.id);
+      expect(container).toHaveTextContent(devLink.createdAt);
 
-        expect(container).toHaveTextContent(keyword.name);
+      devLink.tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
 
-        tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
+      expect(container).toHaveTextContent(devLink.title);
 
-        reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
-      });
+      expect(container).toHaveTextContent('좋아요');
+      expect(container).toHaveTextContent('맨션');
+      expect(container).toHaveTextContent('북마크');
     });
   });
 
