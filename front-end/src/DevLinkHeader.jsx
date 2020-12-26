@@ -2,64 +2,63 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { colors, textStyles } from './styles/common/designSystem';
+import { colors } from './styles/common/designSystem';
 
-const { title } = textStyles;
-
-const DevLinkHeaderWrapper = styled.div({
+const Wrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
-  padding: '0px 2px',
+  paddingBottom: '10px',
+  padding: '10px',
 });
 
-const Keywords = styled.div({
-  flex: '1.5',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-});
-
-const Keyword = styled.div(({ objectColor }) => ({
-  color: objectColor,
-  alignItems: 'center',
-  backgroundColor: colors.white,
+const LeftWrapper = styled.div({
+  width: '50px',
+  height: '50px',
+  borderRadius: '100%',
+  overflow: 'hidden',
   '& img': {
-    width: '15px',
-    marginRight: '1px',
-    display: 'inline-block',
-    verticalAlign: 'center',
-    backgroundColor: 'inherit',
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
   },
-  '& span': {
-    color: objectColor,
-    fontFamily: title.fontFamily,
-    fontSize: title.fontSize,
-    fontWeight: title.fontWeight,
-    letterSpacing: title.letterSpacing,
-    backgroundColor: 'inherit',
-  },
-}));
+});
 
-const WrittenAt = styled.span({
-  flex: '0.5',
-  color: colors.blue.dark,
-  fontSize: '25px',
-  fontWeight: 'bolder',
-  letterSpacing: '1px',
+const CenterWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'stretch',
+  width: '90%',
+  textAlign: 'left',
+  '& p': {
+    margin: '0',
+    padding: '4px 10px',
+    height: '-webkit-fill-available',
+    fontFamily: 'system-ui',
+  },
+});
+
+const FirstDevlinkerId = styled.p({
+});
+
+const CreatedAt = styled.p({
+  color: colors.gray.dark,
+  fontSize: '12px',
+
 });
 
 export default function DevLinkHeader({ devLink }) {
-  const { keyword, writtenAt } = devLink;
+  const { firstDevlinker, createdAt } = devLink;
 
   return (
-    <DevLinkHeaderWrapper>
-      <Keywords>
-        <Keyword objectColor={keyword.color}>
-          <span>{keyword.name}</span>
-        </Keyword>
-      </Keywords>
-      <WrittenAt>{writtenAt}</WrittenAt>
-    </DevLinkHeaderWrapper>
+    <Wrapper>
+      <LeftWrapper>
+        <img id="first-devlinker-img" src={firstDevlinker.img} alt="프로필 사진" />
+      </LeftWrapper>
+      <CenterWrapper>
+        <FirstDevlinkerId>{firstDevlinker.id}</FirstDevlinkerId>
+        <CreatedAt>{createdAt}</CreatedAt>
+      </CenterWrapper>
+    </Wrapper>
   );
 }
