@@ -93,9 +93,9 @@ describe('actions', () => {
           firebase: 'FIREBASE_ACCESS_TOKEN',
         },
         userInfo: {
-          uid: 'user_uid',
-          email: 'dev@devlink.com',
-          photoURL: 'https://some-new-url-here',
+          firebaseId: 'firebaseId',
+          githubId: 'githubId',
+          githubProfile: 'githubProfile',
         },
       });
     });

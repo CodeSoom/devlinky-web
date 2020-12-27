@@ -88,9 +88,9 @@ describe('reducer', () => {
           firebase: 'FIREBASE_ACCESS_TOKEN',
         },
         userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
+          firebaseId: 'firebaseId',
+          githubId: 'githubId',
+          githubProfile: 'githubProfile',
         },
       };
 
@@ -108,9 +108,9 @@ describe('reducer', () => {
           firebase: 'FIREBASE_ACCESS_TOKEN',
         },
         userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
+          firebaseId: 'firebaseId',
+          githubId: 'githubId',
+          githubProfile: 'githubProfile',
         },
       };
 
