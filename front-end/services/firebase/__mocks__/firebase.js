@@ -30,6 +30,12 @@ const response = {
   id: 'responseId',
 };
 
+const responseWhereGet = {
+  querySnapshot: {
+    docs: [1],
+  },
+};
+
 const githubOAuthLogin = () => new Promise((resolve) => resolve(mockResponse));
 
 const githubOAuthLogout = jest.fn();
@@ -43,6 +49,9 @@ const firebase = {
   firestore: jest.fn().mockImplementation(() => ({
     collection: jest.fn().mockImplementation(() => ({
       get: jest.fn().mockResolvedValue([]),
+      where: jest.fn().mockImplementation(() => ({
+        get: jest.fn().mockResolvedValue(responseWhereGet),
+      })),
       add: jest.fn().mockResolvedValue(response),
       doc: jest.fn().mockImplementation(() => ({
         set: jest.fn().mockResolvedValue(response),

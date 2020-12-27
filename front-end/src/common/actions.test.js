@@ -46,19 +46,12 @@ describe('actions', () => {
       firebase: 'FIREBASE_ACCESS_TOKEN',
     };
 
-    const mockUserInfo = {
-      firebaseId: 'firebaseId',
-      githubId: 'githubId',
-      githubProfile: 'githubProfile',
-    };
-
     it('runs setAccessToken and setUserInfo', async () => {
       await store.dispatch(login());
 
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setAccessToken(mockAccessToken));
-      expect(actions[1]).toEqual(setUserInfo(mockUserInfo));
     });
   });
 
