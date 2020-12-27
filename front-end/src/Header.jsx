@@ -25,6 +25,7 @@ const Wrapper = styled.header({
     fontSize: '30px',
   },
   '& button': {
+    marginTop: '3px',
     border: `1.5px solid ${colors.blue.dark}`,
     borderRadius: '7px',
     padding: '5px 20px',
@@ -35,6 +36,25 @@ const Wrapper = styled.header({
       color: colors.blue.dark,
     },
   },
+});
+
+const ImgWrapper = styled.div({
+  width: '50px',
+  height: '50px',
+  borderRadius: '100%',
+  overflow: 'hidden',
+  border: '#dcdc 1px solid',
+  '& img': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
+});
+
+const UserInfoWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 });
 
 export default function Header() {
@@ -67,10 +87,13 @@ export default function Header() {
       <Link to="/">
         <span>#Dev</span>
       </Link>
-      <h1>{userInfo ? `${userInfo.githubId} 님 반갑습니다` : ''}</h1>
-
       {userInfo ? (
-        <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
+        <UserInfoWrapper>
+          <ImgWrapper>
+            <img id="first-devlinker-img" src={userInfo.githubProfile} alt={userInfo.githubId} />
+          </ImgWrapper>
+          <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
+        </UserInfoWrapper>
       ) : (
         <button type="button" onClick={handleClickLogin}>
           로 그 인
