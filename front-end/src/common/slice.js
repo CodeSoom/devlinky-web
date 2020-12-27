@@ -77,6 +77,8 @@ export const signUp = ({ githubId, githubProfile }) => async (dispatch) => {
     githubProfile: result.githubProfile,
   };
 
+  saveItem('currentUser', JSON.stringify(userInfo));
+
   dispatch(setUserInfo(userInfo));
 };
 
@@ -91,10 +93,7 @@ export function login() {
       firebase: firebaseUserIdToken,
     };
 
-    saveItem('accessToken', {
-      github: response.credential.accessToken,
-      firebase: firebaseUserIdToken,
-    });
+    saveItem('accessToken', JSON.stringify(accessToken));
 
     dispatch(setAccessToken(accessToken));
 
@@ -107,6 +106,7 @@ export function login() {
 
 export const logout = () => async (dispatch) => {
   removeItem('accessToken');
+  removeItem('currentUser');
 
   await githubOAuthLogout();
   dispatch(resetAccessToken());

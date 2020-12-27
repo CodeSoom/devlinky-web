@@ -45,10 +45,10 @@ describe('<Header />', () => {
   context('with token in localStorage && without accessToken and useInfo', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
-      loadItem.mockImplementation(() => ({
+      loadItem.mockImplementation(() => JSON.stringify(({
         github: 'GITHUB_ACCESS_TOKEN',
         firebase: 'FIREBASE_ACCESS_TOKEN',
-      }));
+      })));
 
       useSelector.mockImplementation((selector) => selector({
         accessToken: null,
