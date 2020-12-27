@@ -64,9 +64,16 @@ const devLinks = [
     comment: "react의 간단 소개",
     createdAt: '2020-02-01 14:10',
   },
-]
+];
+
+const signupInfo = {
+  id: 'responseId',
+  githubId: 'githubId',
+  githubProfile: 'githubProfile',
+};
 
 module.exports = {
   devLink,
-  devLinks
+  devLinks,
+  signupInfo,
 }

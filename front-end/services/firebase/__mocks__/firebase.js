@@ -21,6 +21,10 @@ const config = {
   measurementId: '',
 };
 
+const response = {
+  id: 'responseId',
+};
+
 const githubOAuthLogin = () => new Promise((resolve) => resolve(mockResponse));
 
 const githubOAuthLogout = jest.fn();
@@ -31,8 +35,16 @@ const firebase = {
     signInWithPopup: () => new Promise((resolve) => resolve(mockResponse)),
     signOut: () => new Promise((resolve) => resolve()),
   }),
+  firestore: jest.fn().mockImplementation(() => ({
+    collection: jest.fn().mockImplementation(() => ({
+      get: jest.fn().mockResolvedValue([]),
+      add: jest.fn().mockResolvedValue(response),
+    })),
+  })),
 };
 
+const db = firebase.firestore();
+
 export {
-  config, githubOAuthLogin, githubOAuthLogout, firebase,
+  config, githubOAuthLogin, githubOAuthLogout, firebase, db,
 };
