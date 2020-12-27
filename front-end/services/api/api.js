@@ -7,7 +7,7 @@ export async function fetchDevLinks() {
   return data;
 }
 
-export async function signUp({ githubId, githubProfile }) {
+export async function addUser({ githubId, githubProfile }) {
   const doc = await db.collection('user').add({
     githubId,
     githubProfile,

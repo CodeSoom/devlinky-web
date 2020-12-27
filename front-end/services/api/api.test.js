@@ -1,4 +1,4 @@
-import { fetchDevLinks, signUp } from './api';
+import { fetchDevLinks, addUser } from './api';
 
 import { devLinks, signupInfo } from '../../../fixture/data';
 
@@ -25,7 +25,7 @@ describe('api', () => {
 
   describe('signUp', () => {
     it('returns signupInfo', async () => {
-      const data = await signUp({
+      const data = await addUser({
         githubId: 'githubId',
         githubProfile: 'githubProfile',
       });
