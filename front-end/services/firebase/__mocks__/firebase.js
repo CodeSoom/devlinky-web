@@ -44,6 +44,9 @@ const firebase = {
     collection: jest.fn().mockImplementation(() => ({
       get: jest.fn().mockResolvedValue([]),
       add: jest.fn().mockResolvedValue(response),
+      doc: jest.fn().mockImplementation(() => ({
+        set: jest.fn().mockResolvedValue(response),
+      })),
     })),
   })),
 };

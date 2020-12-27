@@ -65,8 +65,9 @@ export function loadInitialData() {
   };
 }
 
-export const signUp = ({ githubId, githubProfile }) => async (dispatch) => {
+export const signUp = ({ firebaseUid, githubId, githubProfile }) => async (dispatch) => {
   const result = await addUser({
+    firebaseUid,
     githubId,
     githubProfile,
   });
@@ -98,6 +99,7 @@ export function login() {
     dispatch(setAccessToken(accessToken));
 
     dispatch(signUp({
+      firebaseUid: response.user.uid,
       githubId: response.additionalUserInfo.profile.login,
       githubProfile: response.user.photoURL,
     }));

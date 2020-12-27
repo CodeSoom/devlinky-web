@@ -26,6 +26,7 @@ describe('api', () => {
   describe('signUp', () => {
     it('returns signupInfo', async () => {
       const data = await addUser({
+        firebaseUid: 'responseId',
         githubId: 'githubId',
         githubProfile: 'githubProfile',
       });

@@ -7,15 +7,11 @@ export async function fetchDevLinks() {
   return data;
 }
 
-export async function addUser({ githubId, githubProfile }) {
-  const doc = await db.collection('user').add({
+export async function addUser({ firebaseUid, githubId, githubProfile }) {
+  await db.collection('user').doc(firebaseUid).set({
     githubId,
     githubProfile,
   });
 
-  const resSignupInfo = { githubId, githubProfile };
-
-  resSignupInfo.id = doc.id;
-
-  return resSignupInfo;
+  return { id: firebaseUid, githubId, githubProfile };
 }
