@@ -9,7 +9,9 @@ const mockResponse = {
     getIdToken: jest.fn().mockResolvedValue('FIREBASE_ACCESS_TOKEN'),
   },
   additionalUserInfo: {
-    login: 'githubId',
+    profile: {
+      login: 'githubId',
+    },
   },
 };
 

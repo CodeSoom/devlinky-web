@@ -99,7 +99,7 @@ export function login() {
     dispatch(setAccessToken(accessToken));
 
     dispatch(signUp({
-      githubId: response.additionalUserInfo.login,
+      githubId: response.additionalUserInfo.profile.login,
       githubProfile: response.user.photoURL,
     }));
   };
