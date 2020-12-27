@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 
 import { colors } from './styles/common/designSystem';
 
-import { login, setAccessToken, logout } from './common/slice';
+import {
+  login, setAccessToken, logout, setUserInfo,
+} from './common/slice';
 
 import { loadItem } from '../services/storage/localStorage';
 
@@ -23,6 +25,7 @@ const Wrapper = styled.header({
     fontSize: '30px',
   },
   '& button': {
+    marginTop: '3px',
     border: `1.5px solid ${colors.blue.dark}`,
     borderRadius: '7px',
     padding: '5px 20px',
@@ -35,17 +38,40 @@ const Wrapper = styled.header({
   },
 });
 
+const ImgWrapper = styled.div({
+  width: '50px',
+  height: '50px',
+  borderRadius: '100%',
+  overflow: 'hidden',
+  border: '#dcdc 1px solid',
+  '& img': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
+});
+
+const UserInfoWrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
 export default function Header() {
   const dispatch = useDispatch();
 
   const localToken = loadItem('accessToken');
+  const currentUser = loadItem('currentUser');
 
   const accessToken = useSelector(get('accessToken'));
-
   const userInfo = useSelector(get('userInfo'));
 
-  if (localToken && !(userInfo || accessToken)) {
-    dispatch(setAccessToken(localToken)); // TODO : 임시용, 토큰 관리 방법 논의 후 자동 로그인 구현 예정
+  if (localToken && !(accessToken)) {
+    dispatch(setAccessToken(JSON.parse(localToken)));
+  }
+
+  if (currentUser && !(userInfo)) {
+    dispatch(setUserInfo(JSON.parse(currentUser)));
   }
 
   const handleClickLogin = () => {
@@ -61,10 +87,13 @@ export default function Header() {
       <Link to="/">
         <span>#Dev</span>
       </Link>
-      <h1>{userInfo ? `${userInfo.email} 님 반갑습니다` : ''}</h1>
-
-      {accessToken ? (
-        <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
+      {userInfo ? (
+        <UserInfoWrapper>
+          <ImgWrapper>
+            <img id="first-devlinker-img" src={userInfo.githubProfile} alt={userInfo.githubId} />
+          </ImgWrapper>
+          <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
+        </UserInfoWrapper>
       ) : (
         <button type="button" onClick={handleClickLogin}>
           로 그 인

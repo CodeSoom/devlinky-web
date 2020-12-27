@@ -1,6 +1,8 @@
-import fetchDevLinks from './api';
+import { fetchDevLinks, addUser } from './api';
 
-import { devLinks } from '../../../fixture/data';
+import { devLinks, signupInfo } from '../../../fixture/data';
+
+jest.mock('../firebase/firebase.js');
 
 describe('api', () => {
   const mockFetch = (data) => {
@@ -18,6 +20,18 @@ describe('api', () => {
       const data = await fetchDevLinks();
 
       expect(data).toEqual(devLinks);
+    });
+  });
+
+  describe('signUp', () => {
+    it('returns signupInfo', async () => {
+      const data = await addUser({
+        firebaseUid: 'responseId',
+        githubId: 'githubId',
+        githubProfile: 'githubProfile',
+      });
+
+      expect(data).toEqual(signupInfo);
     });
   });
 });

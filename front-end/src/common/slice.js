@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchDevLinks from '../../services/api/api';
+import { fetchDevLinks, addUser } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -65,6 +65,24 @@ export function loadInitialData() {
   };
 }
 
+export const signUp = ({ firebaseUid, githubId, githubProfile }) => async (dispatch) => {
+  const result = await addUser({
+    firebaseUid,
+    githubId,
+    githubProfile,
+  });
+
+  const userInfo = {
+    firebaseId: result.id,
+    githubId: result.githubId,
+    githubProfile: result.githubProfile,
+  };
+
+  saveItem('currentUser', JSON.stringify(userInfo));
+
+  dispatch(setUserInfo(userInfo));
+};
+
 export function login() {
   return async (dispatch) => {
     const response = await githubOAuthLogin();
@@ -76,27 +94,21 @@ export function login() {
       firebase: firebaseUserIdToken,
     };
 
-    saveItem('accessToken', {
-      github: response.credential.accessToken,
-      firebase: firebaseUserIdToken,
-    });
+    saveItem('accessToken', JSON.stringify(accessToken));
 
     dispatch(setAccessToken(accessToken));
 
-    const { uid, email, photoURL } = response.user;
-
-    const userInfo = {
-      uid, // TODO : 토큰 관리 방법 논의 후 삭제 고려
-      email,
-      photoURL,
-    };
-
-    dispatch(setUserInfo(userInfo));
+    dispatch(signUp({
+      firebaseUid: response.user.uid,
+      githubId: response.additionalUserInfo.profile.login,
+      githubProfile: response.user.photoURL,
+    }));
   };
 }
 
 export const logout = () => async (dispatch) => {
   removeItem('accessToken');
+  removeItem('currentUser');
 
   await githubOAuthLogout();
   dispatch(resetAccessToken());
