@@ -8,6 +8,9 @@ const mockResponse = {
     photoURL: 'https://some-new-url-here',
     getIdToken: jest.fn().mockResolvedValue('FIREBASE_ACCESS_TOKEN'),
   },
+  additionalUserInfo: {
+    login: 'githubId',
+  },
 };
 
 const config = {

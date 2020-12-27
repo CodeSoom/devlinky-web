@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchDevLinks } from '../../services/api/api';
+import { fetchDevLinks, addUser } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -65,6 +65,21 @@ export function loadInitialData() {
   };
 }
 
+export const signUp = ({ githubId, githubProfile }) => async (dispatch) => {
+  const result = await addUser({
+    githubId,
+    githubProfile,
+  });
+
+  const userInfo = {
+    firebaseId: result.id,
+    githubId: result.githubId,
+    githubProfile: result.githubProfile,
+  };
+
+  dispatch(setUserInfo(userInfo));
+};
+
 export function login() {
   return async (dispatch) => {
     const response = await githubOAuthLogin();
@@ -83,15 +98,10 @@ export function login() {
 
     dispatch(setAccessToken(accessToken));
 
-    const { uid, email, photoURL } = response.user;
-
-    const userInfo = {
-      uid, // TODO : 토큰 관리 방법 논의 후 삭제 고려
-      email,
-      photoURL,
-    };
-
-    dispatch(setUserInfo(userInfo));
+    dispatch(signUp({
+      githubId: response.additionalUserInfo.login,
+      githubProfile: response.user.photoURL,
+    }));
   };
 }
 
