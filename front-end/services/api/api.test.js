@@ -1,4 +1,4 @@
-import fetchDevLinks, { signUp } from './api';
+import { fetchDevLinks, signUp } from './api';
 
 import { devLinks, signupInfo } from '../../../fixture/data';
 

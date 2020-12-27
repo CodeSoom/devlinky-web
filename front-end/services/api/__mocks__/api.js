@@ -1,4 +1,4 @@
-export default async function fetchDevLinks() {
+export async function fetchDevLinks() {
   return [];
 }
 
