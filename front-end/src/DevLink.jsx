@@ -2,13 +2,10 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { ReactTinyLink } from 'react-tiny-link';
-
 import { colors } from './styles/common/designSystem';
 
 import DevLinkHeader from './DevLinkHeader';
-import Reviews from './Reviews';
-import Tags from './Tags';
+import DevLinkBody from './DevLinkBody';
 
 import { isEmpty } from './common/utils';
 
@@ -27,42 +24,6 @@ const Wrapper = styled.div({
   },
 });
 
-const DevLinkBody = styled.div({
-  fontFamily: 'Nanum Pen Script, cursive',
-});
-
-const LinkWrapper = styled.div({
-  backgroundColor: colors.transparent,
-  '& a': {
-    // Link 카드 전체
-    outlineStyle: 'none',
-    height: '100px',
-    width: '28em',
-    margin: '0',
-    padding: '0',
-    '& div': {
-      // Link 타이틀, URL, 도메인이름 등의 Wrapper
-      margin: '2px',
-      padding: '0',
-    },
-    '& header': {
-      // Link 타이틀
-      margin: '0',
-      padding: '0',
-    },
-    '& div div': {
-      // Link URL
-      margin: '0',
-      padding: '0',
-    },
-    '& footer': {
-      // URL 도메인이름
-      margin: '0',
-      padding: '0',
-    },
-  },
-});
-
 export default function DevLink({ devLink }) {
   if (isEmpty(devLink || [])) {
     return <p>로딩중....</p>;
@@ -71,20 +32,7 @@ export default function DevLink({ devLink }) {
   return (
     <Wrapper>
       <DevLinkHeader devLink={devLink} />
-      <DevLinkBody>
-        <LinkWrapper>
-          <ReactTinyLink
-            cardSize="medium"
-            showGraphic
-            width="100vh"
-            maxLine={1}
-            minLine={1}
-            url={devLink.url}
-          />
-        </LinkWrapper>
-        <Tags tags={devLink.tags} />
-        <Reviews reviews={devLink.reviews} />
-      </DevLinkBody>
+      <DevLinkBody devLink={devLink} />
     </Wrapper>
   );
 }
