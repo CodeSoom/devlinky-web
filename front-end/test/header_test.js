@@ -15,7 +15,7 @@ const devLink = {
   tags: ['Webpack'],
   comment: 'Webpack 기본 지식 잘 나온 링크',
   url: 'https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html',
-  thumbnamil: 'https://jeonghwan-kim.github.io/assets/imgs/me.jpg',
+  thumbnail: 'https://jeonghwan-kim.github.io/assets/imgs/me.jpg',
   title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
 };
 

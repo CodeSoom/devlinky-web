@@ -74,7 +74,7 @@ export default function DevLinkBody({ devLink }) {
         <Comment>{devLink.comment}</Comment>
       </DevLinkDescription>
       <DevLinkCard onClick={handleClick}>
-        <img src={devLink.thumbnamil} alt={`${devLink.title} 링크 썸네일`} />
+        <img src={devLink.thumbnail} alt={`${devLink.title} 링크 썸네일`} />
         <span>{devLink.title}</span>
       </DevLinkCard>
     </Wrapper>
