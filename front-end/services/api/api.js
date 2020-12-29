@@ -1,10 +1,7 @@
 import { db } from '../firebase/firebase';
 
-export default async function fetchDevLinks() {
-  const url = `${process.env.API_URL}/devlink/all`;
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
+export async function temp() { // TODO : 삭제 예정
+  return null;
 }
 
 export async function getDevLinks() {

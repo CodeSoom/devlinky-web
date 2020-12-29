@@ -1,4 +1,4 @@
-export default async function fetchDevLinks() {
+export async function temp() { // TODO : 삭제 예정
   return [];
 }
 

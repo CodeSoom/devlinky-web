@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchDevLinks from '../../services/api/api';
+import { getDevLinks } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -60,7 +60,8 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const devLinks = await fetchDevLinks();
+    const devLinks = await getDevLinks();
+
     dispatch(setDevLinks(devLinks));
   };
 }
