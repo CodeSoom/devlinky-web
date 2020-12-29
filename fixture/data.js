@@ -14,7 +14,7 @@ export const devLink = {
 
 export const devLinks = [
   {
-    id: 'Uid',
+    id: 'Uid1',
     firstDevlinker: {
       id: 'daadaadaah',
       img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
@@ -27,7 +27,7 @@ export const devLinks = [
     title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
   },
   {
-    id: 'Uid',
+    id: 'Uid2',
     firstDevlinker: {
       id: 'daadaadaah',
       img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
@@ -40,7 +40,7 @@ export const devLinks = [
     title: 'GraphQL이 뭔가요?',
   },
   {
-    id: "Uid",
+    id: "Uid3",
     firstDevlinker: {
       id: "daadaadaah",
       img: "https://scontent-ssn1-1.xx.fbcdn.net/v/t31.0-1/cp0/c0.13.80.80a/p80x80/18237765_1282944051818757_9120627240636275285_o.jpg?_nc_cat=105&ccb=2&_nc_sid=7206a8&_nc_ohc=0iQXIG4cESoAX_zTXan&_nc_ht=scontent-ssn1-1.xx&tp=27&oh=f0d27929e45d93d1e4f9aa659111f81f&oe=6009DB1E",

@@ -1,3 +1,5 @@
+import { devLinks } from '../../../../fixture/data';
+
 const mockResponse = {
   credential: {
     accessToken: 'GITHUB_ACCESS_TOKEN',
@@ -21,6 +23,10 @@ const config = {
   measurementId: '',
 };
 
+const collections = {
+  devlink: devLinks,
+};
+
 const githubOAuthLogin = () => new Promise((resolve) => resolve(mockResponse));
 
 const githubOAuthLogout = jest.fn();
@@ -31,8 +37,22 @@ const firebase = {
     signInWithPopup: () => new Promise((resolve) => resolve(mockResponse)),
     signOut: () => new Promise((resolve) => resolve()),
   }),
+  firestore: jest.fn().mockImplementation(() => ({
+    collection: jest.fn().mockImplementation((name) => ({
+      get: jest.fn().mockResolvedValue({
+        docs: collections[name].map((item) => ({
+          id: item.id,
+          data: () => item,
+
+        })),
+      }),
+    })),
+  })),
+
 };
 
+const db = firebase.firestore();
+
 export {
-  config, githubOAuthLogin, githubOAuthLogout, firebase,
+  config, githubOAuthLogin, githubOAuthLogout, firebase, db,
 };
