@@ -39,7 +39,7 @@ describe('App with router', () => {
     it('shows loading message', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('로딩중');
+      expect(container).toHaveTextContent('로 그 인');
     });
   });
 
