@@ -15,3 +15,12 @@ export const getMapToArray = (arr, key) => {
 export const getUniqArray = (arr) => [...new Set(arr)];
 
 export const getPropertysFromObjects = (arr, property) => arr.map((element) => element[property]);
+
+export const joinObj1sAndObj2s = (arr1, arr1Key, arr2, arr2Key, newProperyName) => {
+  const newArr2 = getMapToArray(arr2, arr2Key);
+
+  return arr1.map((item) => ({
+    ...item,
+    [newProperyName]: newArr2.get(item[arr1Key]),
+  }));
+};

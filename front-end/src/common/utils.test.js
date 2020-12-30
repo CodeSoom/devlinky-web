@@ -1,5 +1,5 @@
 import {
-  get, isEmpty, getMapToArray, getUniqArray, getPropertysFromObjects,
+  get, isEmpty, getMapToArray, getUniqArray, getPropertysFromObjects, joinObj1sAndObj2s,
 } from './utils';
 
 test('get', () => {
@@ -52,4 +52,61 @@ test('getPropertysFromObjects', () => {
   }];
 
   expect(getPropertysFromObjects(array, 'uid')).toStrictEqual(['uid1', 'uid2', 'uid3']);
+});
+
+test('joinObj1sAndObj2s', () => {
+  const array1 = [{
+    userUid: 'uid1',
+    title: '11',
+  }, {
+    userUid: 'uid2',
+    title: '12',
+  }, {
+    userUid: 'uid3',
+    title: '13',
+  }];
+
+  const array2 = [{
+    uid: 'uid1',
+    address: '경기도',
+    phone: '010',
+  }, {
+    uid: 'uid2',
+    address: '경기도2',
+    phone: '020',
+  }, {
+    uid: 'uid3',
+    address: '경기도3',
+    phone: '030',
+  }];
+
+  const array3 = [{
+    userUid: 'uid1',
+    title: '11',
+    user: {
+      uid: 'uid1',
+      address: '경기도',
+      phone: '010',
+    },
+  }, {
+    userUid: 'uid2',
+    title: '12',
+    user: {
+      uid: 'uid2',
+      address: '경기도2',
+      phone: '020',
+    },
+  }, {
+    userUid: 'uid3',
+    title: '13',
+    user: {
+      uid: 'uid3',
+      address: '경기도3',
+      phone: '030',
+    },
+  }];
+
+  const result = joinObj1sAndObj2s(array1, 'userUid', array2, 'uid', 'user');
+
+  expect(result).toStrictEqual(array3);
 });
