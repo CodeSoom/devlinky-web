@@ -13,3 +13,5 @@ export const getMapToArray = (arr, key) => {
 };
 
 export const getUniqArray = (arr) => [...new Set(arr)];
+
+export const getPropertysFromObjects = (arr, property) => arr.map((element) => element[property]);

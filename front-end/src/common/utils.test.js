@@ -1,5 +1,5 @@
 import {
-  get, isEmpty, getMapToArray, getUniqArray,
+  get, isEmpty, getMapToArray, getUniqArray, getPropertysFromObjects,
 } from './utils';
 
 test('get', () => {
@@ -37,4 +37,19 @@ test('getUniqArray', () => {
   const array = [1, 2, 3, 4, 4, 4, 4, 2, 2, 2];
 
   expect(getUniqArray(array)).toStrictEqual([1, 2, 3, 4]);
+});
+
+test('getPropertysFromObjects', () => {
+  const array = [{
+    uid: 'uid1',
+    age: '11',
+  }, {
+    uid: 'uid2',
+    age: '12',
+  }, {
+    uid: 'uid3',
+    age: '13',
+  }];
+
+  expect(getPropertysFromObjects(array, 'uid')).toStrictEqual(['uid1', 'uid2', 'uid3']);
 });
