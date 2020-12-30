@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getDevLinks } from '../../services/api/api';
+import { getDevLinks, getUsers } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -60,7 +60,23 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const devLinks = await getDevLinks();
+    const tempDevLinks = await getDevLinks();
+
+    const firstDevLinkerUids = tempDevLinks.map((doc) => doc.firstDevLinkerUid);
+
+    const uniquefirstDevLinkerUids = [...new Set(firstDevLinkerUids)];
+
+    const tempDevLinkers = await getUsers(uniquefirstDevLinkerUids);
+
+    const devLinkers = {};
+    tempDevLinkers.forEach((tempDevLinker) => {
+      devLinkers[tempDevLinker.uid] = tempDevLinker;
+    });
+
+    const devLinks = tempDevLinks.map((item) => ({
+      ...item,
+      firstDevLinker: devLinkers[item.firstDevLinkerUid],
+    }));
 
     dispatch(setDevLinks(devLinks));
   };
