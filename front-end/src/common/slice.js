@@ -9,6 +9,8 @@ import {
 
 import { saveItem, removeItem } from '../../services/storage/localStorage';
 
+import { getMapToArray } from './utils';
+
 const { actions, reducer } = createSlice({
   name: 'devLink#',
   initialState: {
@@ -68,14 +70,11 @@ export function loadInitialData() {
 
     const tempDevLinkers = await getUsers(uniquefirstDevLinkerUids);
 
-    const devLinkers = {};
-    tempDevLinkers.forEach((tempDevLinker) => {
-      devLinkers[tempDevLinker.uid] = tempDevLinker;
-    });
+    const devLinkers = getMapToArray(tempDevLinkers, 'uid');
 
     const devLinks = tempDevLinks.map((item) => ({
       ...item,
-      firstDevLinker: devLinkers[item.firstDevLinkerUid],
+      firstDevLinker: devLinkers.get(item.firstDevLinkerUid),
     }));
 
     dispatch(setDevLinks(devLinks));
