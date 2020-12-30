@@ -1,4 +1,6 @@
-import { get, isEmpty, getMapToArray } from './utils';
+import {
+  get, isEmpty, getMapToArray, getUniqArray,
+} from './utils';
 
 test('get', () => {
   const state = {
@@ -29,4 +31,10 @@ test('getMapToArray', () => {
   const array = [obj];
 
   expect(getMapToArray(array, 'uid').get(key)).toBe(obj);
+});
+
+test('getUniqArray', () => {
+  const array = [1, 2, 3, 4, 4, 4, 4, 2, 2, 2];
+
+  expect(getUniqArray(array)).toStrictEqual([1, 2, 3, 4]);
 });

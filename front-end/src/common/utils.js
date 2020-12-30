@@ -11,3 +11,5 @@ export const getMapToArray = (arr, key) => {
 
   return map;
 };
+
+export const getUniqArray = (arr) => [...new Set(arr)];
