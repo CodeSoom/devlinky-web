@@ -9,7 +9,7 @@ import {
 
 import { saveItem, removeItem } from '../../services/storage/localStorage';
 
-import { getMapToArray } from './utils';
+import { getMapToArray, getUniqArray } from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'devLink#',
@@ -66,7 +66,7 @@ export function loadInitialData() {
 
     const firstDevLinkerUids = tempDevLinks.map((doc) => doc.firstDevLinkerUid);
 
-    const uniquefirstDevLinkerUids = [...new Set(firstDevLinkerUids)];
+    const uniquefirstDevLinkerUids = getUniqArray(firstDevLinkerUids);
 
     const tempDevLinkers = await getUsers(uniquefirstDevLinkerUids);
 
