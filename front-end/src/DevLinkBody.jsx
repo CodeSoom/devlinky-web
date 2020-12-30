@@ -23,7 +23,7 @@ const DevLinkDescription = styled.div({
   },
 });
 
-const Tag = styled.p({
+const Tag = styled.span({
   color: colors.blue.basic,
 });
 
@@ -38,18 +38,17 @@ const DevLinkCard = styled.div({
   paddingBottom: '5px',
   justifyItems: 'center',
   boxShadow: `0 4px 8px 0 ${colors.shadow}`,
+  height: '20rem',
   ':hover': {
     cursor: 'pointer',
-
   },
   '& img': {
     width: '100%',
+    height: '80%',
   },
-  '& span': {
-
-    padding: '15px 5px',
+  '& p': {
+    padding: '5px',
     fontSize: '20px',
-
   },
 });
 
@@ -75,7 +74,7 @@ export default function DevLinkBody({ devLink }) {
       </DevLinkDescription>
       <DevLinkCard onClick={handleClick}>
         <img src={devLink.thumbnail} alt={`${devLink.title} 링크 썸네일`} />
-        <span>{devLink.title}</span>
+        <p>{devLink.title}</p>
       </DevLinkCard>
     </Wrapper>
   );

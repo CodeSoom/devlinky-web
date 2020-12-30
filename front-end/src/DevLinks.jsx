@@ -7,9 +7,11 @@ import DevLink from './DevLink';
 import { isEmpty } from './common/utils';
 
 const Wrapper = styled.div({
+  width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
   flexWrap: 'wrap',
+  marginTop: '5rem',
+  padding: '0 10rem',
 });
 
 export default function DevLinks({ devLinks }) {

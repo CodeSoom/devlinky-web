@@ -10,11 +10,11 @@ import DevLinkBody from './DevLinkBody';
 import { isEmpty } from './common/utils';
 
 const Wrapper = styled.div({
-  flex: '3',
   margin: '10px',
   padding: '5px 8px',
   borderRadius: '5px',
   backgroundColor: colors.white,
+  width: '25rem',
   textAlign: 'center',
   boxShadow: `0px 4px 16px 0px ${colors.shadow}`,
   ': hover': {
