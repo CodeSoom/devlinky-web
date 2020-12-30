@@ -1,6 +1,6 @@
-import { getDevLinks } from './api';
+import { getDevLinks, getUsers } from './api';
 
-import { devLinks } from '../../../fixture/data';
+import { devLinks, users } from '../../../fixture/data';
 
 jest.mock('../firebase/firebase.js');
 
@@ -10,6 +10,16 @@ describe('api', () => {
       const data = await getDevLinks();
 
       expect(data).toEqual(devLinks);
+    });
+  });
+
+  describe('getUsers', () => {
+    const uniqueUserUids = users.map((item) => item.uid);
+
+    it('returns devLinkers', async () => {
+      const data = await getUsers(uniqueUserUids);
+
+      expect(data).toEqual(users);
     });
   });
 });

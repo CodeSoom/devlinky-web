@@ -1,4 +1,4 @@
-import { devLinks } from '../../../../fixture/data';
+import { devLinks, users } from '../../../../fixture/data';
 
 const mockResponse = {
   credential: {
@@ -25,6 +25,7 @@ const config = {
 
 const collections = {
   devlink: devLinks,
+  user: users,
 };
 
 const githubOAuthLogin = () => new Promise((resolve) => resolve(mockResponse));
@@ -43,9 +44,22 @@ const firebase = {
         docs: collections[name].map((item) => ({
           id: item.id,
           data: () => item,
-
         })),
       }),
+      where: jest.fn().mockImplementation(() => ({
+        get: jest.fn().mockResolvedValue({
+          docs: collections[name].map((item) => ({
+            id: item.uid,
+            data: () => item,
+          })),
+        }),
+      })),
+      doc: jest.fn().mockImplementation((docName) => ({
+        get: jest.fn().mockResolvedValue({
+          id: docName,
+          data: () => collections[name].find((data) => data.uid === docName),
+        }),
+      })),
     })),
   })),
 

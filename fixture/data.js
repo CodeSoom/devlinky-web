@@ -1,6 +1,31 @@
+export const user = {
+  uid: 'Uid1',
+  githubId: 'daadaadaah',
+  githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+};
+
+export const users = [
+  {
+    uid: 'Uid1',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+  },
+  {
+    uid: 'Uid2',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+  },
+  {
+    uid: 'Uid3',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+  },
+]
+
 export const devLink = {
   id: 'Uid',
-  firstDevlinker: {
+  firstDevLinkerUid: 'Uid1',
+  firstDevLinker: {
     id: 'daadaadaah',
     img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
@@ -15,7 +40,8 @@ export const devLink = {
 export const devLinks = [
   {
     id: 'Uid1',
-    firstDevlinker: {
+    firstDevLinkerUid: 'Uid1',
+    firstDevLinker: {
       id: 'daadaadaah',
       img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
@@ -28,7 +54,8 @@ export const devLinks = [
   },
   {
     id: 'Uid2',
-    firstDevlinker: {
+    firstDevLinkerUid: 'Uid2',
+    firstDevLinker: {
       id: 'daadaadaah',
       img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
@@ -41,9 +68,10 @@ export const devLinks = [
   },
   {
     id: "Uid3",
-    firstDevlinker: {
+    firstDevLinkerUid: 'Uid3',
+    firstDevLinker: {
       id: "daadaadaah",
-      img: "https://scontent-ssn1-1.xx.fbcdn.net/v/t31.0-1/cp0/c0.13.80.80a/p80x80/18237765_1282944051818757_9120627240636275285_o.jpg?_nc_cat=105&ccb=2&_nc_sid=7206a8&_nc_ohc=0iQXIG4cESoAX_zTXan&_nc_ht=scontent-ssn1-1.xx&tp=27&oh=f0d27929e45d93d1e4f9aa659111f81f&oe=6009DB1E",
+      img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
     url: "https://www.youtube.com/watch?v=RP_f5dMoHFc&ab_channel=naverd2",
     thumbnail: "https://i.ytimg.com/vi/RP_f5dMoHFc/maxresdefault.jpg",

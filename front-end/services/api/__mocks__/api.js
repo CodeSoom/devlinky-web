@@ -1,7 +1,7 @@
-export async function temp() { // TODO : 삭제 예정
+export async function getDevLinks() {
   return [];
 }
 
-export async function getDevLinks() {
+export async function getUsers() {
   return [];
 }
