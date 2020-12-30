@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
-
-import { get, isEmpty } from './common/utils';
+import { isEmpty } from './common/utils';
 
 import DevLinks from './DevLinks';
 
