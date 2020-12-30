@@ -9,7 +9,9 @@ import {
 
 import { saveItem, removeItem } from '../../services/storage/localStorage';
 
-import { getMapToArray, getUniqArray, getPropertysFromObjects } from './utils';
+import {
+  getUniqArray, getPropertysFromObjects, joinObj1sAndObj2s,
+} from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'devLink#',
@@ -70,12 +72,7 @@ export function loadInitialData() {
 
     const tempDevLinkers = await getUsers(uniquefirstDevLinkerUids);
 
-    const devLinkers = getMapToArray(tempDevLinkers, 'uid');
-
-    const devLinks = tempDevLinks.map((item) => ({
-      ...item,
-      firstDevLinker: devLinkers.get(item.firstDevLinkerUid),
-    }));
+    const devLinks = joinObj1sAndObj2s(tempDevLinks, 'firstDevLinkerUid', tempDevLinkers, 'uid', 'firstDevLinker');
 
     dispatch(setDevLinks(devLinks));
   };
