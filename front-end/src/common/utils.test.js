@@ -1,4 +1,4 @@
-import { get, isEmpty } from './utils';
+import { get, isEmpty, getMapToArray } from './utils';
 
 test('get', () => {
   const state = {
@@ -16,4 +16,17 @@ test('isEmpty', () => {
   const array = [];
 
   expect(isEmpty(array)).toBeTruthy();
+});
+
+test('getMapToArray', () => {
+  const obj = {
+    uid: 'uid1',
+    age: '12',
+  };
+
+  const key = obj.uid;
+
+  const array = [obj];
+
+  expect(getMapToArray(array, 'uid').get(key)).toBe(obj);
 });
