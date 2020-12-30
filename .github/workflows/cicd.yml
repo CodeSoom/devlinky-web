@@ -3,7 +3,6 @@ name: CI_CD
 on: [push, pull_request]
 
 jobs:
-
   FrontEnd-build:
     runs-on: ubuntu-latest
     env:
@@ -26,19 +25,19 @@ jobs:
         run: npm run lint
       - name: Test
         working-directory: front-end
-        run: npm test
+        run: npm run start:server & npm test
         env:
           HEADLESS: true
       - name: Load FIREBASE Config
         working-directory: front-end
         run: |
-            echo 'FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}' >> config/.env.production
-            echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}' >> config/.env.production
-            echo 'FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}' >> config/.env.production
-            echo 'FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> config/.env.production
-            echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
-            echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
-            echo 'FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}' >> config/.env.production
+          echo 'FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}' >> config/.env.production
+          echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}' >> config/.env.production
+          echo 'FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}' >> config/.env.production
+          echo 'FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> config/.env.production
+          echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
+          echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
+          echo 'FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}' >> config/.env.production
       - name: Build
         working-directory: front-end
         run: |
@@ -51,53 +50,53 @@ jobs:
           BRANCH: gh-pages
           FOLDER: front-end/dist
   BackEnd-build:
-      runs-on: ubuntu-latest
-      env:
-        CI: true
-      strategy:
-        matrix:
-          node-version: [12.x]
-      steps:
-        - uses: actions/checkout@v2
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}
-        - name: Install firebase-tools and dependencies
-          working-directory: functions
-          run: |
-            npm install -g firebase-tools
-            npm install
-        - name: Create Firebase Config JSON file
-          working-directory: functions
-          run: |
-              echo '{}' | jq --arg type '${{ secrets.FIREBASE_TYPE }}' \
-              --arg project_id '${{ secrets.FIREBASE_PROJECT_ID }}' \
-              --arg private_key_id '${{ secrets.FIREBASE_PRIVATE_KEY_ID }}' \
-              --arg private_key '${{ secrets.FIREBASE_PRIVATE_KEY }}' \
-              --arg client_email '${{ secrets.FIREBASE_CLIENT_EMAIL }}' \
-              --arg client_id '${{ secrets.FIREBASE_CLIENT_ID }}' \
-              --arg auth_uri '${{ secrets.FIREBASE_AUTH_URI }}' \
-              --arg token_uri '${{ secrets.FIREBASE_TOKEN_URI }}' \
-              --arg auth_provider_x509_cert_url '${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}' \
-              --arg client_x509_cert_url '${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}' \
-              '{ 
-                  type: $type, 
-                  project_id: $project_id, 
-                  private_key_id: $private_key_id, 
-                  private_key: $private_key, 
-                  client_email: $client_email, 
-                  client_id: $client_id, 
-                  auth_uri: $auth_uri, 
-                  token_uri: $token_uri, 
-                  auth_provider_x509_cert_url: $auth_provider_x509_cert_url, 
-                  client_x509_cert_url: $client_x509_cert_url 
-              }' > firebaseConfig.json
-        - name: Deploy Firebase functions
-          if: github.ref == 'refs/heads/master'        
-          uses: w9jds/firebase-action@master
-          with:
-            args: deploy --only functions
-          env:
-            FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-            PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install firebase-tools and dependencies
+        working-directory: functions
+        run: |
+          npm install -g firebase-tools
+          npm install
+      - name: Create Firebase Config JSON file
+        working-directory: functions
+        run: |
+          echo '{}' | jq --arg type '${{ secrets.FIREBASE_TYPE }}' \
+          --arg project_id '${{ secrets.FIREBASE_PROJECT_ID }}' \
+          --arg private_key_id '${{ secrets.FIREBASE_PRIVATE_KEY_ID }}' \
+          --arg private_key '${{ secrets.FIREBASE_PRIVATE_KEY }}' \
+          --arg client_email '${{ secrets.FIREBASE_CLIENT_EMAIL }}' \
+          --arg client_id '${{ secrets.FIREBASE_CLIENT_ID }}' \
+          --arg auth_uri '${{ secrets.FIREBASE_AUTH_URI }}' \
+          --arg token_uri '${{ secrets.FIREBASE_TOKEN_URI }}' \
+          --arg auth_provider_x509_cert_url '${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}' \
+          --arg client_x509_cert_url '${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}' \
+          '{ 
+              type: $type, 
+              project_id: $project_id, 
+              private_key_id: $private_key_id, 
+              private_key: $private_key, 
+              client_email: $client_email, 
+              client_id: $client_id, 
+              auth_uri: $auth_uri, 
+              token_uri: $token_uri, 
+              auth_provider_x509_cert_url: $auth_provider_x509_cert_url, 
+              client_x509_cert_url: $client_x509_cert_url 
+          }' > firebaseConfig.json
+      - name: Deploy Firebase functions
+        if: github.ref == 'refs/heads/master'
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
