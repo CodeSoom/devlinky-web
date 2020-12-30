@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import fetchDevLinks from '../../services/api/api';
+import { getDevLinks, getUsers } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -8,6 +8,10 @@ import {
 } from '../../services/firebase/firebase';
 
 import { saveItem, removeItem } from '../../services/storage/localStorage';
+
+import {
+  getUniqArray, getPropertysFromObjects, joinObj1sAndObj2s,
+} from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'devLink#',
@@ -60,7 +64,16 @@ export const {
 
 export function loadInitialData() {
   return async (dispatch) => {
-    const devLinks = await fetchDevLinks();
+    const tempDevLinks = await getDevLinks();
+
+    const firstDevLinkerUids = getPropertysFromObjects(tempDevLinks, 'firstDevLinkerUid');
+
+    const uniquefirstDevLinkerUids = getUniqArray(firstDevLinkerUids);
+
+    const tempDevLinkers = await getUsers(uniquefirstDevLinkerUids);
+
+    const devLinks = joinObj1sAndObj2s(tempDevLinks, 'firstDevLinkerUid', tempDevLinkers, 'uid', 'firstDevLinker');
+
     dispatch(setDevLinks(devLinks));
   };
 }

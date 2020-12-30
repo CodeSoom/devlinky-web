@@ -1,53 +1,15 @@
 const devLink = {
-  id: 2,
-  url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
-  writtenAt: '2020/01',
-  object: {
-    id: 1,
-    name: 'React',
-    color: '#61dafb',
-    img:
-      'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
+  id: 'Uid',
+  firstDevlinker: {
+    id: 'daadaadaah',
+    img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
-  tags: [
-    {
-      id: 1,
-      name: '장단점',
-    },
-    {
-      id: 2,
-      name: '역사',
-    },
-    {
-      id: 3,
-      name: '등장배경',
-    },
-    {
-      id: 4,
-      name: '장단점',
-    },
-    {
-      id: 5,
-      name: '역사',
-    },
-    {
-      id: 6,
-      name: '등장배경',
-    },
-  ],
-  reviews: [
-    {
-      id: 1,
-      name: '덕후',
-    },
-    {
-      id: 2,
-      name: '쏙쏙',
-    },
-  ],
-  createdAt: '2020-02-01 14:12',
-  updatedAt: null,
-  deletedAt: null,
+  createdAt: '2020',
+  tags: ['Webpack'],
+  comment: 'Webpack 기본 지식 잘 나온 링크',
+  url: 'https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html',
+  thumbnail: 'https://jeonghwan-kim.github.io/assets/imgs/me.jpg',
+  title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
 };
 
 Feature('Home');
@@ -61,15 +23,14 @@ Scenario('로고가 보인다.', (I) => {
 Scenario('Link 아이템이 보인다.', (I) => {
   I.amOnPage('/');
 
-  I.see(devLink.object.name);
+  I.see(devLink.firstDevlinker.id);
+  I.see(devLink.createdAt);
 
-  devLink.tags.forEach(({ name }) => {
-    I.see(name);
+  devLink.tags.forEach((tags) => {
+    I.see(tags);
   });
 
-  devLink.reviews.forEach(({ name }) => {
-    I.see(name);
-  });
+  I.see(devLink.comment);
 
-  I.see(devLink.writtenAt);
+  I.see(devLink.title);
 });

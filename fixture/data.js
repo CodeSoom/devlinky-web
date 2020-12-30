@@ -1,383 +1,83 @@
-const devLink = {
-  id: 1,
-  url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
-  writtenAt: '2020/01',
-  keyword: {
-    id: 1,
-    name: 'Prisma',
-    color: '#0C344B',
-    img: '../assets/images/keyword/prisma.png',
-  },
-  tags: [
-    {
-      id: 1,
-      name: '장단점',
-    },
-    {
-      id: 2,
-      name: '역사',
-    },
-    {
-      id: 3,
-      name: '등장배경',
-    },
-  ],
-  reviews: [
-    {
-      id: 1,
-      name: '컴팩트한 글',
-    },
-    {
-      id: 2,
-      name: '초보자도 쉽게 이해할 수 있는 글',
-    },
-  ],
-  createdAt: '2020-02-01 14:10',
-  updatedAt: null,
-  deletedAt: null,
+export const user = {
+  uid: 'Uid1',
+  githubId: 'daadaadaah',
+  githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
 };
 
-const devLinks = [
+export const users = [
   {
-    id: 1,
-    url: 'https://www.prisma.io/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'Prisma',
-      color: '#0C344B',
-      img: '../assets/images/keyword/prisma.png',
-    },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '가독성',
-      },
-      {
-        id: 2,
-        name: '정보성',
-      },
-      {
-        id: 3,
-        name: '통찰력',
-      },
-    ],
-    createdAt: '2020-02-01 14:10',
-    updatedAt: null,
-    deletedAt: null,
+    uid: 'Uid1',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
   {
-    id: 2,
-    url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'React',
-      color: '#61dafb',
-      img:
-        '../assets/images/keyword/react.png',
-    },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '덕후',
-      },
-      {
-        id: 2,
-        name: '쏙쏙',
-      },
-    ],
-    createdAt: '2020-02-01 14:12',
-    updatedAt: null,
-    deletedAt: null,
+    uid: 'Uid2',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
   {
-    id: 3,
-    url: 'https://graphql.org/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'GraphQL',
-      color: '#D64292',
-      img: '../assets/images/keyword/graghql.png',
-    },
+    uid: 'Uid3',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+  },
+]
 
-    tags: [
-      {
-        id: 1,
-        name: '개념',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '스윽',
-      },
-      {
-        id: 2,
-        name: '꾹',
-      },
-    ],
-    createdAt: '2020-02-01 14:14',
-    updatedAt: null,
-    deletedAt: null,
+export const devLink = {
+  id: 'Uid',
+  firstDevLinkerUid: 'Uid1',
+  firstDevLinker: {
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
-  {
-    id: 4,
-    url: 'https://www.prisma.io/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'Prisma',
-      color: '#0C344B',
-      img: '../assets/images/keyword/prisma.png',
-    },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '가독성',
-      },
-      {
-        id: 2,
-        name: '정보성',
-      },
-      {
-        id: 3,
-        name: '통찰력',
-      },
-    ],
-    createdAt: '2020-02-01 14:10',
-    updatedAt: null,
-    deletedAt: null,
-  },
-  {
-    id: 5,
-    url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'React',
-      color: '#61dafb',
-      img:
-        '../assets/images/keyword/react.png',
-    },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '덕후',
-      },
-      {
-        id: 2,
-        name: '쏙쏙',
-      },
-    ],
-    createdAt: '2020-02-01 14:12',
-    updatedAt: null,
-    deletedAt: null,
-  },
-  {
-    id: 6,
-    url: 'https://graphql.org/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'GraphQL',
-      color: '#D64292',
-      img: '../assets/images/keyword/graghql.png',
-    },
+  createdAt: '2020',
+  tags: ['Webpack'],
+  comment: 'Webpack 기본 지식 잘 나온 링크',
+  url: 'https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html',
+  thumbnail: 'https://jeonghwan-kim.github.io/assets/imgs/me.jpg',
+  title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
+};
 
-    tags: [
-      {
-        id: 1,
-        name: '개념',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '스윽',
-      },
-      {
-        id: 2,
-        name: '꾹',
-      },
-    ],
-    createdAt: '2020-02-01 14:14',
-    updatedAt: null,
-    deletedAt: null,
+export const devLinks = [
+  {
+    id: 'Uid1',
+    firstDevLinkerUid: 'Uid1',
+    firstDevLinker: {
+      githubId: 'daadaadaah',
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+    },
+    createdAt: '2020',
+    tags: ['Webpack'],
+    comment: 'Webpack 기본 지식 잘 나온 링크',
+    url: 'https://jeonghwan-kim.github.io/series/2019/12/10/frontend-dev-env-webpack-basic.html',
+    thumbnail: 'https://jeonghwan-kim.github.io/assets/imgs/me.jpg',
+    title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
   },
   {
-    id: 7,
-    url: 'https://www.prisma.io/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'Prisma',
-      color: '#0C344B',
-      img: '../assets/images/keyword/prisma.png',
+    id: 'Uid2',
+    firstDevLinkerUid: 'Uid2',
+    firstDevLinker: {
+      githubId: 'daadaadaah',
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '가독성',
-      },
-      {
-        id: 2,
-        name: '정보성',
-      },
-      {
-        id: 3,
-        name: '통찰력',
-      },
-    ],
-    createdAt: '2020-02-01 14:10',
-    updatedAt: null,
-    deletedAt: null,
+    createdAt: '2020',
+    tags: ['Graphql'],
+    comment: 'Graphql 기본적인 설명 잘 해주는 영상',
+    url: 'https://www.youtube.com/watch?app=desktop&v=EkWI6Ru8lFQ&ab_channel=%EC%96%84%ED%8C%8D%ED%95%9C%EC%BD%94%EB%94%A9%EC%82%AC%EC%A0%84',
+    thumbnail: 'https://i.ytimg.com/vi/EkWI6Ru8lFQ/maxresdefault.jpg',
+    title: 'GraphQL이 뭔가요?',
   },
   {
-    id: 8,
-    url: 'http://jeonghwan-kim.github.io/2018/07/16/react-app-overview.html',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'React',
-      color: '#61dafb',
-      img:
-        '../assets/images/keyword/react.png',
+    id: "Uid3",
+    firstDevLinkerUid: 'Uid3',
+    firstDevLinker: {
+      githubId: "daadaadaah",
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
-    tags: [
-      {
-        id: 1,
-        name: '장단점',
-      },
-      {
-        id: 2,
-        name: '역사',
-      },
-      {
-        id: 3,
-        name: '등장배경',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '덕후',
-      },
-      {
-        id: 2,
-        name: '쏙쏙',
-      },
-    ],
-    createdAt: '2020-02-01 14:12',
-    updatedAt: null,
-    deletedAt: null,
+    url: "https://www.youtube.com/watch?v=RP_f5dMoHFc&ab_channel=naverd2",
+    thumbnail: "https://i.ytimg.com/vi/RP_f5dMoHFc/maxresdefault.jpg",
+    title: "Day1, 2-2. 그런 REST API로 괜찮은가",
+    tags: ['RestAPI'],
+    comment: "RestAPI에 대해 잘 설명한 영상",
+    createdAt: '2020',
   },
-  {
-    id: 9,
-    url: 'https://graphql.org/',
-    writtenAt: '2020/01',
-    keyword: {
-      id: 1,
-      name: 'GraphQL',
-      color: '#D64292',
-      img: '../assets/images/keyword/graghql.png',
-    },
-
-    tags: [
-      {
-        id: 1,
-        name: '개념',
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        name: '스윽',
-      },
-      {
-        id: 2,
-        name: '꾹',
-      },
-    ],
-    createdAt: '2020-02-01 14:14',
-    updatedAt: null,
-    deletedAt: null,
-  },
-];
-
-
-module.exports = {
-  devLink,
-  devLinks
-}
+]

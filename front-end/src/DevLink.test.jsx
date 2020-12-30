@@ -13,13 +13,11 @@ describe('<DevLink />', () => {
     it('show devLink', () => {
       const { container } = render(<DevLink devLink={devLink} />);
 
-      const { keyword, tags, reviews } = devLink;
+      const { firstDevLinker, createdAt } = devLink;
 
-      expect(container).toHaveTextContent(keyword.name);
+      expect(container).toHaveTextContent(firstDevLinker.githubId);
 
-      tags.forEach((tag) => expect(container).toHaveTextContent(tag.name));
-
-      reviews.forEach((review) => expect(container).toHaveTextContent(review.name));
+      expect(container).toHaveTextContent(createdAt);
     });
   });
 
