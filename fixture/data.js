@@ -26,8 +26,8 @@ export const devLink = {
   id: 'Uid',
   firstDevLinkerUid: 'Uid1',
   firstDevLinker: {
-    id: 'daadaadaah',
-    img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+    githubId: 'daadaadaah',
+    githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
   createdAt: '2020',
   tags: ['Webpack'],
@@ -42,8 +42,8 @@ export const devLinks = [
     id: 'Uid1',
     firstDevLinkerUid: 'Uid1',
     firstDevLinker: {
-      id: 'daadaadaah',
-      img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+      githubId: 'daadaadaah',
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
     createdAt: '2020',
     tags: ['Webpack'],
@@ -56,8 +56,8 @@ export const devLinks = [
     id: 'Uid2',
     firstDevLinkerUid: 'Uid2',
     firstDevLinker: {
-      id: 'daadaadaah',
-      img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+      githubId: 'daadaadaah',
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
     createdAt: '2020',
     tags: ['Graphql'],
@@ -70,8 +70,8 @@ export const devLinks = [
     id: "Uid3",
     firstDevLinkerUid: 'Uid3',
     firstDevLinker: {
-      id: "daadaadaah",
-      img: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
+      githubId: "daadaadaah",
+      githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
     },
     url: "https://www.youtube.com/watch?v=RP_f5dMoHFc&ab_channel=naverd2",
     thumbnail: "https://i.ytimg.com/vi/RP_f5dMoHFc/maxresdefault.jpg",

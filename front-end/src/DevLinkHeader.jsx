@@ -48,15 +48,15 @@ const CreatedAt = styled.p({
 });
 
 export default function DevLinkHeader({ devLink }) {
-  const { firstDevlinker, createdAt } = devLink;
+  const { firstDevLinker, createdAt } = devLink;
 
   return (
     <Wrapper>
       <LeftWrapper>
-        <img id="first-devlinker-img" src={firstDevlinker.img} alt="프로필 사진" />
+        <img id="first-devlinker-img" src={firstDevLinker.githubProfile} alt="프로필 사진" />
       </LeftWrapper>
       <CenterWrapper>
-        <FirstDevlinkerId>{firstDevlinker.id}</FirstDevlinkerId>
+        <FirstDevlinkerId>{firstDevLinker.githubId}</FirstDevlinkerId>
         <CreatedAt>{createdAt}</CreatedAt>
       </CenterWrapper>
     </Wrapper>

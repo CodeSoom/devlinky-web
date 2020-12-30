@@ -13,9 +13,9 @@ describe('<DevLink />', () => {
     it('show devLink', () => {
       const { container } = render(<DevLink devLink={devLink} />);
 
-      const { firstDevlinker, createdAt } = devLink;
+      const { firstDevLinker, createdAt } = devLink;
 
-      expect(container).toHaveTextContent(firstDevlinker.id);
+      expect(container).toHaveTextContent(firstDevLinker.githubId);
 
       expect(container).toHaveTextContent(createdAt);
     });
