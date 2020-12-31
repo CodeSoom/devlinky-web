@@ -23,6 +23,16 @@ jobs:
       - name: Lint
         working-directory: front-end
         run: npm run lint
+      - name: Load FIREBASE Config
+        working-directory: front-end
+        run: |
+          echo 'FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}' >> config/.env.production
+          echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}' >> config/.env.production
+          echo 'FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}' >> config/.env.production
+          echo 'FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> config/.env.production
+          echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
+          echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
+          echo 'FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}' >> config/.env.production
       - name: Unit Test
         working-directory: front-end
         run: npm run coverage
@@ -34,16 +44,6 @@ jobs:
         run: npm run test:e2e
         env:
           HEADLESS: true
-      - name: Load FIREBASE Config
-        working-directory: front-end
-        run: |
-          echo 'FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}' >> config/.env.production
-          echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}' >> config/.env.production
-          echo 'FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}' >> config/.env.production
-          echo 'FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> config/.env.production
-          echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
-          echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
-          echo 'FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}' >> config/.env.production
       - name: Build
         working-directory: front-end
         run: |
