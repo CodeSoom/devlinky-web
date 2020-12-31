@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getDevLinks, getUsers } from '../../services/api/api';
+import { getDevLinks, getUsers, addUser } from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -77,6 +77,14 @@ export function loadInitialData() {
     dispatch(setDevLinks(devLinks));
   };
 }
+
+export const signUp = (userInfo) => async (dispatch) => {
+  await addUser(userInfo);
+
+  saveItem('currentUser', JSON.stringify(userInfo));
+
+  dispatch(setUserInfo(userInfo));
+};
 
 export function login() {
   return async (dispatch) => {
