@@ -59,10 +59,10 @@ const firebase = {
           id: docName,
           data: () => collections[name].find((data) => data.uid === docName),
         }),
+        set: jest.fn().mockResolvedValue({}),
       })),
     })),
   })),
-
 };
 
 const db = firebase.firestore();
