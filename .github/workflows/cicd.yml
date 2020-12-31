@@ -23,11 +23,17 @@ jobs:
       - name: Lint
         working-directory: front-end
         run: npm run lint
-      # - name: Test
-      #   working-directory: front-end
-      #   run: npm test
-      #   env:
-      #     HEADLESS: true
+      - name: Unit Test
+        working-directory: front-end
+        run: npm run coverage
+        env:
+          HEADLESS: true
+      - name: E2E Test
+        working-directory: front-end
+        if: github.ref == 'refs/heads/master'
+        run: npm run test:e2e
+        env:
+          HEADLESS: true
       - name: Load FIREBASE Config
         working-directory: front-end
         run: |
