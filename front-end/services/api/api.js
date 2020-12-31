@@ -11,3 +11,15 @@ export async function getUsers(userUids) {
 
   return responses.docs.map((doc) => (doc.data()));
 }
+
+export async function addUser({ uid, githubId, githubProfile }) {
+  await db.collection('user').doc(uid).set({
+    uid,
+    githubId,
+    githubProfile,
+  });
+
+  const resaddUserInfo = { uid, githubId, githubProfile };
+
+  return resaddUserInfo;
+}

@@ -1,14 +1,18 @@
-import { devLinks, users } from '../../../../fixture/data';
+import { devLinks, users, user } from '../../../../fixture/data';
 
 const mockResponse = {
   credential: {
     accessToken: 'GITHUB_ACCESS_TOKEN',
   },
   user: {
-    uid: 'devuid',
-    email: 'dev@devlink.com',
-    photoURL: 'https://some-new-url-here',
+    uid: user.uid,
+    photoURL: user.githubProfile,
     getIdToken: jest.fn().mockResolvedValue('FIREBASE_ACCESS_TOKEN'),
+  },
+  additionalUserInfo: {
+    profile: {
+      login: user.githubId,
+    },
   },
 };
 
@@ -59,10 +63,10 @@ const firebase = {
           id: docName,
           data: () => collections[name].find((data) => data.uid === docName),
         }),
+        set: jest.fn().mockResolvedValue({}),
       })),
     })),
   })),
-
 };
 
 const db = firebase.firestore();

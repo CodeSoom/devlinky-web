@@ -11,7 +11,10 @@ import {
   logout,
   resetAccessToken,
   resetUserInfo,
+  signUp,
 } from './slice';
+
+import { user } from '../../../fixture/data';
 
 const mockStore = configureStore(getDefaultMiddleware());
 
@@ -45,19 +48,13 @@ describe('actions', () => {
       firebase: 'FIREBASE_ACCESS_TOKEN',
     };
 
-    const mockUserInfo = {
-      uid: 'devuid',
-      email: 'dev@devlink.com',
-      photoURL: 'https://some-new-url-here',
-    };
-
     it('runs setAccessToken and setUserInfo', async () => {
       await store.dispatch(login());
 
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setAccessToken(mockAccessToken));
-      expect(actions[1]).toEqual(setUserInfo(mockUserInfo));
+      expect(actions[1]).toEqual(setUserInfo(user));
     });
   });
 
@@ -68,11 +65,7 @@ describe('actions', () => {
           github: 'GITHUB_ACCESS_TOKEN',
           firebase: 'FIREBASE_ACCESS_TOKEN',
         },
-        userInfo: {
-          uid: 'user_uid',
-          email: 'dev@devlink.com',
-          photoURL: 'https://some-new-url-here',
-        },
+        userInfo: user,
       });
     });
 
@@ -83,6 +76,20 @@ describe('actions', () => {
 
       expect(actions[0]).toEqual(resetAccessToken());
       expect(actions[1]).toEqual(resetUserInfo());
+    });
+  });
+
+  describe('signUp', () => {
+    beforeEach(() => {
+      store = mockStore({});
+    });
+
+    it('runs setUserInfo', async () => {
+      await store.dispatch(signUp(user));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setUserInfo(user));
     });
   });
 });

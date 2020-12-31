@@ -5,3 +5,5 @@ export async function getDevLinks() {
 export async function getUsers() {
   return [];
 }
+
+export const addUser = jest.fn();
