@@ -35,13 +35,14 @@ jobs:
           echo 'FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}' >> config/.env.production
       - name: Unit Test
         working-directory: front-end
+        if: github.ref != 'refs/heads/master'
         run: npm run coverage
         env:
           HEADLESS: true
       - name: E2E Test
         working-directory: front-end
         if: github.ref == 'refs/heads/master'
-        run: start-server-and-test start http://localhost:8080 test:e2e
+        run: npm test
         env:
           HEADLESS: true
       - name: Build
