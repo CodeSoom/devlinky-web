@@ -104,15 +104,13 @@ export function login() {
 
     dispatch(setAccessToken(accessToken));
 
-    const { uid, email, photoURL } = response.user;
-
     const userInfo = {
-      uid, // TODO : 토큰 관리 방법 논의 후 삭제 고려
-      email,
-      photoURL,
+      uid: response.user.uid,
+      githubId: response.additionalUserInfo.profile.login,
+      githubProfile: response.user.photoURL,
     };
 
-    dispatch(setUserInfo(userInfo));
+    dispatch(signUp(userInfo));
   };
 }
 
