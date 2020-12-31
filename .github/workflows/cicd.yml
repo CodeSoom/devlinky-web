@@ -34,6 +34,7 @@ jobs:
           echo 'FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}' >> config/.env.production
           echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
           echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
+          cat config/.env.production
       - name: Unit Test
         working-directory: front-end
         if: github.ref != 'refs/heads/master'
