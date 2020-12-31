@@ -41,7 +41,7 @@ jobs:
       - name: E2E Test
         working-directory: front-end
         if: github.ref == 'refs/heads/master'
-        run: npm run test:e2e
+        run: start-server-and-test start http://localhost:8080 test:e2e
         env:
           HEADLESS: true
       - name: Build
