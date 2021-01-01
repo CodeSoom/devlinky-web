@@ -97,10 +97,7 @@ export function login() {
       firebase: firebaseUserIdToken,
     };
 
-    saveItem('accessToken', {
-      github: response.credential.accessToken,
-      firebase: firebaseUserIdToken,
-    });
+    saveItem('accessToken', JSON.stringify(accessToken));
 
     dispatch(setAccessToken(accessToken));
 

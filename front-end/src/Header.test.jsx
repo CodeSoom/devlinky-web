@@ -12,6 +12,8 @@ import { loadItem } from '../services/storage/localStorage';
 
 import Header from './Header';
 
+import { user, accessToken } from '../../fixture/data';
+
 jest.mock('react-redux');
 jest.mock('./common/slice');
 jest.mock('../services/firebase/firebase.js');
@@ -45,10 +47,7 @@ describe('<Header />', () => {
   context('with token in localStorage && without accessToken and useInfo', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
-      loadItem.mockImplementation(() => ({
-        github: 'GITHUB_ACCESS_TOKEN',
-        firebase: 'FIREBASE_ACCESS_TOKEN',
-      }));
+      loadItem.mockImplementation(() => (JSON.stringify(accessToken)));
 
       useSelector.mockImplementation((selector) => selector({
         accessToken: null,
@@ -63,37 +62,32 @@ describe('<Header />', () => {
         </MemoryRouter>,
       );
 
-      expect(dispatch).toBeCalledWith(setAccessToken({
-        github: 'GITHUB_ACCESS_TOKEN',
-        firebase: 'FIREBASE_ACCESS_TOKEN',
-      }));
+      expect(dispatch).toBeCalledWith(setAccessToken(accessToken));
     });
   });
 
-  context('with token in localStorage && with accessToken and useInfo', () => {
+  context('with token and currentUser in localStorage && with accessToken and useInfo', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
+      loadItem.mockImplementation(() => (JSON.stringify(accessToken)));
+
+      loadItem.mockImplementation(() => (JSON.stringify(user)));
+
       useSelector.mockImplementation((selector) => selector({
-        accessToken: {
-          github: 'GITHUB_ACCESS_TOKEN',
-          firebase: 'FIREBASE_ACCESS_TOKEN',
-        },
-        userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
-        },
+        accessToken,
+        userInfo: user,
       }));
     });
 
-    it('show logout button', () => {
-      const { container } = render(
+    it('show logout button && userInfo', () => {
+      const { container, getByAltText } = render(
         <MemoryRouter initialEntries={['/']}>
           <Header />
         </MemoryRouter>,
       );
 
       expect(container).toHaveTextContent(/#Dev/i);
+      expect(getByAltText(`${user.githubId}`)).toHaveAttribute('src', user.githubProfile);
       expect(container).toHaveTextContent('로 그 아 웃');
     });
   });
@@ -123,15 +117,8 @@ describe('<Header />', () => {
     beforeEach(() => {
       useDispatch.mockImplementation(() => dispatch);
       useSelector.mockImplementation((selector) => selector({
-        accessToken: {
-          github: 'GITHUB_ACCESS_TOKEN',
-          firebase: 'FIREBASE_ACCESS_TOKEN',
-        },
-        userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
-        },
+        accessToken,
+        userInfo: user,
       }));
     });
 

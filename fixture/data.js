@@ -1,3 +1,9 @@
+export const accessToken = {
+  github: 'GITHUB_ACCESS_TOKEN',
+  firebase: 'FIREBASE_ACCESS_TOKEN',
+};
+
+
 export const user = {
   uid: 'Uid1',
   githubId: 'daadaadaah',
