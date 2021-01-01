@@ -6,7 +6,7 @@ import reducer, {
   resetUserInfo,
 } from './slice';
 
-import { devLink } from '../../../fixture/data';
+import { devLink, user, accessToken } from '../../../fixture/data';
 
 jest.mock('../../services/firebase/firebase.js');
 
@@ -48,16 +48,10 @@ describe('reducer', () => {
 
       const state = reducer(
         initialState,
-        setAccessToken({
-          github: 'GITHUB_ACCESS_TOKEN',
-          firebase: 'FIREBASE_ACCESS_TOKEN',
-        }),
+        setAccessToken(accessToken),
       );
 
-      expect(state.accessToken).toEqual({
-        github: 'GITHUB_ACCESS_TOKEN',
-        firebase: 'FIREBASE_ACCESS_TOKEN',
-      });
+      expect(state.accessToken).toEqual(accessToken);
     });
   });
 
@@ -68,30 +62,17 @@ describe('reducer', () => {
         userInfo: null,
       };
 
-      const userInfo = {
-        uid: 'uid',
-        email: 'email',
-        photoURL: 'photoURL',
-      };
+      const state = reducer(initialState, setUserInfo(user));
 
-      const state = reducer(initialState, setUserInfo(userInfo));
-
-      expect(state.userInfo).toEqual(userInfo);
+      expect(state.userInfo).toEqual(user);
     });
   });
 
   describe('resetAccessToken', () => {
     it('reset accessToken', () => {
       const initialState = {
-        accessToken: {
-          github: 'GITHUB_ACCESS_TOKEN',
-          firebase: 'FIREBASE_ACCESS_TOKEN',
-        },
-        userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
-        },
+        accessToken,
+        userInfo: user,
       };
 
       const state = reducer(initialState, resetAccessToken());
@@ -103,15 +84,8 @@ describe('reducer', () => {
   describe('resetUserInfo', () => {
     it('reset userInfo', () => {
       const initialState = {
-        accessToken: {
-          github: 'GITHUB_ACCESS_TOKEN',
-          firebase: 'FIREBASE_ACCESS_TOKEN',
-        },
-        userInfo: {
-          uid: 'uid',
-          email: 'email',
-          photoURL: 'photoURL',
-        },
+        accessToken,
+        userInfo: user,
       };
 
       const state = reducer(initialState, resetUserInfo());
