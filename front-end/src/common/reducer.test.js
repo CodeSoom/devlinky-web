@@ -4,6 +4,7 @@ import reducer, {
   setUserInfo,
   resetAccessToken,
   resetUserInfo,
+  setDevLinkerInfo,
 } from './slice';
 
 import { devLink, user, accessToken } from '../../../fixture/data';
@@ -16,6 +17,7 @@ describe('reducer', () => {
       devLinks: [],
       accessToken: null,
       userInfo: null,
+      devLinkerInfo: null,
     };
 
     it('returns initialState', () => {
@@ -91,6 +93,19 @@ describe('reducer', () => {
       const state = reducer(initialState, resetUserInfo());
 
       expect(state.userInfo).toEqual(null);
+    });
+  });
+
+  describe('setDevLinkerInfo', () => {
+    it('reset devLinkerInfo', () => {
+      const initialState = {
+        accessToken,
+        devLinkerInfo: null,
+      };
+
+      const state = reducer(initialState, setDevLinkerInfo(user));
+
+      expect(state.devLinkerInfo).toEqual(user);
     });
   });
 });

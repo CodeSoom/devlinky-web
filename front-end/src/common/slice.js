@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getDevLinks, getUsers, addUser } from '../../services/api/api';
+import {
+  getDevLinks, getUsers, addUser, getUser,
+} from '../../services/api/api';
 
 import {
   githubOAuthLogin,
@@ -19,6 +21,7 @@ const { actions, reducer } = createSlice({
     devLinks: [],
     accessToken: null,
     userInfo: null,
+    devLinkerInfo: null,
   },
   reducers: {
     setDevLinks(state, { payload: devLinks }) {
@@ -51,6 +54,12 @@ const { actions, reducer } = createSlice({
         userInfo: null,
       };
     },
+    setDevLinkerInfo(state, { payload: devLinkerInfo }) {
+      return {
+        ...state,
+        devLinkerInfo,
+      };
+    },
   },
 });
 
@@ -60,6 +69,7 @@ export const {
   setUserInfo,
   resetAccessToken,
   resetUserInfo,
+  setDevLinkerInfo,
 } = actions;
 
 export function loadInitialData() {
@@ -118,5 +128,13 @@ export const logout = () => async (dispatch) => {
   dispatch(resetAccessToken());
   dispatch(resetUserInfo());
 };
+
+export function loadDevLinkerInfo({ devLinkerGithubId }) {
+  return async (dispatch) => {
+    const devLinkerInfo = await getUser({ githubId: devLinkerGithubId });
+
+    dispatch(setDevLinkerInfo(devLinkerInfo));
+  };
+}
 
 export default reducer;
