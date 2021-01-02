@@ -18,12 +18,12 @@ export const users = [
   },
   {
     uid: 'Uid2',
-    githubId: 'daadaadaah',
+    githubId: 'daadaadaah2',
     githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
   {
     uid: 'Uid3',
-    githubId: 'daadaadaah',
+    githubId: 'daadaadaah3',
     githubProfile: 'https://avatars1.githubusercontent.com/u/60481383?s=460&v=4',
   },
 ]

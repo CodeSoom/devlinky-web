@@ -23,3 +23,9 @@ export async function addUser({ uid, githubId, githubProfile }) {
 
   return resaddUserInfo;
 }
+
+export async function getUser({ githubId }) {
+  const responses = await db.collection('user').where('githubId', '==', githubId).get();
+
+  return responses.docs.map((doc) => (doc.data()))[0];
+}
