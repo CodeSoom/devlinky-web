@@ -50,14 +50,35 @@ const firebase = {
           data: () => item,
         })),
       }),
-      where: jest.fn().mockImplementation(() => ({
-        get: jest.fn().mockResolvedValue({
-          docs: collections[name].map((item) => ({
-            id: item.uid,
-            data: () => item,
-          })),
-        }),
-      })),
+      where: jest.fn().mockImplementation((fieldName, operator, value) => {
+        let result = null;
+
+        if (operator === '==') {
+          result = ({
+            get: jest.fn().mockResolvedValue({
+              docs: collections[name]
+                .filter((doc) => doc[fieldName] === value)
+                .map((doc) => ({
+                  id: doc.uid,
+                  data: () => doc,
+                })),
+            }),
+          });
+        }
+
+        if (operator === 'in') {
+          result = ({
+            get: jest.fn().mockResolvedValue({
+              docs: collections[name].map((item) => ({
+                id: item.uid,
+                data: () => item,
+              })),
+            }),
+          });
+        }
+
+        return result;
+      }),
       doc: jest.fn().mockImplementation((docName) => ({
         get: jest.fn().mockResolvedValue({
           id: docName,

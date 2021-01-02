@@ -90,7 +90,9 @@ export default function Header() {
       {userInfo ? (
         <UserInfoWrapper>
           <ImgWrapper>
-            <img id="first-devlinker-img" src={userInfo.githubProfile} alt={userInfo.githubId} />
+            <Link to={`/user/${userInfo.githubId}`}>
+              <img id="first-devlinker-img" src={userInfo.githubProfile} alt={userInfo.githubId} />
+            </Link>
           </ImgWrapper>
           <button type="button" onClick={handleClickLogout}>로 그 아 웃</button>
         </UserInfoWrapper>

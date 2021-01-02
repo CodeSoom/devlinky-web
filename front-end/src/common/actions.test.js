@@ -12,6 +12,8 @@ import {
   resetAccessToken,
   resetUserInfo,
   signUp,
+  loadDevLinkerInfo,
+  setDevLinkerInfo,
 } from './slice';
 
 import { user } from '../../../fixture/data';
@@ -90,6 +92,20 @@ describe('actions', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(setUserInfo(user));
+    });
+  });
+
+  describe('loadDevLinkerInfo', () => {
+    beforeEach(() => {
+      store = mockStore({});
+    });
+
+    it('runs setUserInfo', async () => {
+      await store.dispatch(loadDevLinkerInfo({ devLinkerGithubId: user.githubId }));
+
+      const actions = store.getActions();
+
+      expect(actions[0]).toEqual(setDevLinkerInfo(user));
     });
   });
 });

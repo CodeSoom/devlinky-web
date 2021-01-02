@@ -1,4 +1,6 @@
-import { getDevLinks, getUsers, addUser } from './api';
+import {
+  getDevLinks, getUsers, addUser, getUser,
+} from './api';
 
 import { devLinks, users, user } from '../../../fixture/data';
 
@@ -26,6 +28,14 @@ describe('api', () => {
   describe('addUser', () => {
     it('returns user', async () => {
       const data = await addUser(user);
+
+      expect(data).toEqual(user);
+    });
+  });
+
+  describe('getUser', () => {
+    it('returns user', async () => {
+      const data = await getUser({ githubId: user.githubId });
 
       expect(data).toEqual(user);
     });
