@@ -4,9 +4,11 @@ import { render } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
+
+import { user } from '../../fixture/data';
 
 jest.mock('react-redux');
 jest.mock('../services/firebase/firebase.js');
@@ -16,6 +18,10 @@ describe('App with router', () => {
 
   beforeEach(() => {
     useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      devLinkerInfo: user,
+    }));
   });
 
   function renderApp({ path }) {
@@ -36,10 +42,19 @@ describe('App with router', () => {
   });
 
   context('with path /', () => {
-    it('shows loading message', () => {
+    it('shows devlinks', () => {
       const { container } = renderApp({ path: '/' });
 
       expect(container).toHaveTextContent('로딩중');
+    });
+  });
+
+  context('with path /user/devlinker', () => {
+    it('shows devlinkerInfo', () => {
+      const { container, getByAltText } = renderApp({ path: '/user/devlinker' });
+
+      expect(getByAltText(`${user.githubId}`)).toHaveAttribute('src', user.githubProfile);
+      expect(container).toHaveTextContent(user.githubId);
     });
   });
 
