@@ -19,7 +19,7 @@ const devLink = {
   title: '프론트엔드 개발환경의 이해: 웹팩(기본)',
 };
 
-Scenario('로고를 클릭하면 메인 페Webpack이지가 보인다.', (I) => {
+Scenario('로고를 클릭하면 메인 페Webpack이지가 보인다.', ({ I }) => {
   pages.forEach((page) => {
     I.amOnPage(page);
 

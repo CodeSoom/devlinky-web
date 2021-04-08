@@ -14,13 +14,13 @@ const devLink = {
 
 Feature('Home');
 
-Scenario('로고가 보인다.', (I) => {
+Scenario('로고가 보인다.', ({ I }) => {
   I.amOnPage('/');
 
   I.see('#Dev');
 });
 
-Scenario('Link 아이템이 보인다.', (I) => {
+Scenario('Link 아이템이 보인다.', ({ I }) => {
   I.amOnPage('/');
 
   I.see(devLink.firstDevlinker.id);
