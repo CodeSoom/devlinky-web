@@ -6,7 +6,7 @@ const user = {
 
 Feature('UserPage');
 
-Scenario('사용자 정보가 보인다.', (I) => {
+Scenario('사용자 정보가 보인다.', ({ I }) => {
   I.amOnPage('/user/daadaadaah');
 
   I.see(user.githubId);
