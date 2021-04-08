@@ -123,6 +123,7 @@ export function login() {
 
 export const logout = () => async (dispatch) => {
   removeItem('accessToken');
+  removeItem('currentUser');
 
   await githubOAuthLogout();
   dispatch(resetAccessToken());
