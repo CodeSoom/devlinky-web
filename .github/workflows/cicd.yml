@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
-      working-directory: front-end
+      working-directory: web/front-end
     strategy:
       matrix:
         node-version: [12.x]
@@ -18,13 +18,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        working-directory: front-end
+        working-directory: web/front-end
         run: npm ci
       - name: Lint
-        working-directory: front-end
+        working-directory: web/front-end
         run: npm run lint
       - name: Load FIREBASE Config (dev)
-        working-directory: front-end
+        working-directory: web/front-end
         run: |
           echo 'FIREBASE_API_KEY=${{ secrets.DEV_FIREBASE_API_KEY }}' >> config/.env.development
           echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.DEV_FIREBASE_AUTH_DOMAIN }}' >> config/.env.development
@@ -35,19 +35,19 @@ jobs:
           echo 'FIREBASE_APP_ID=${{ secrets.DEV_FIREBASE_APP_ID }}' >> config/.env.development
           echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.DEV_FIREBASE_MEASUREMENT_ID }}' >> config/.env.development
       - name: Test (PR)
-        working-directory: front-end
+        working-directory: web/front-end
         if: github.ref != 'refs/heads/master'
         run: npm run coverage
         env:
           HEADLESS: true
       - name: Test (Merge to Master)
-        working-directory: front-end
+        working-directory: web/front-end
         if: github.ref == 'refs/heads/master'
         run: npm test
         env:
           HEADLESS: true
       - name: Load FIREBASE Config (prod)
-        working-directory: front-end
+        working-directory: web/front-end
         run: |
           echo 'FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}' >> config/.env.production
           echo 'FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}' >> config/.env.production
@@ -58,7 +58,7 @@ jobs:
           echo 'FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}' >> config/.env.production
           echo 'FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}' >> config/.env.production
       - name: Build
-        working-directory: front-end
+        working-directory: web/front-end
         run: |
           npm run build
       - name: Deploy
@@ -67,4 +67,4 @@ jobs:
         with:
           BASE_BRANCH: master
           BRANCH: gh-pages
-          FOLDER: front-end/dist
+          FOLDER: web/front-end/dist
