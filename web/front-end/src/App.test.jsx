@@ -11,7 +11,7 @@ import App from './App';
 import { user } from '../../../fixture/data';
 
 jest.mock('react-redux');
-jest.mock('../services/firebase/firebase.js');
+jest.mock('./services/firebase/firebase.js');
 
 describe('App with router', () => {
   const dispatch = jest.fn();
